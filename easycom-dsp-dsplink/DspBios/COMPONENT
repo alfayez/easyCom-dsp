@@ -19,7 +19,7 @@
 #   ============================================================================
 
 COMP_NAME       := LOOP
-COMP_PATH       := $(TI_DSPLINK_DSPROOT)$(DIRSEP)src$(DIRSEP)samples$(DIRSEP)loopAl2
+COMP_PATH       := $(TI_DSPLINK_DSPROOT)$(DIRSEP)src$(DIRSEP)samples$(DIRSEP)easycom-dsp-dsplink
 COMP_TYPE       := EXE
 COMP_TARGET     := loopAl2.out
 

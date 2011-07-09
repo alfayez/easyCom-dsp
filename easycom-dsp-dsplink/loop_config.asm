@@ -1,16 +1,16 @@
 ;******************************************************************************
-;* TMS320C6x C/C++ Codegen                                       Unix v6.0.21 *
-;* Date/Time created: Tue Apr 12 22:18:53 2011                                *
+;* TMS320C6x C/C++ Codegen                                       Unix v6.1.17 *
+;* Date/Time created: Sat Jul  9 12:24:32 2011                                *
 ;******************************************************************************
-	.compiler_opts --c64p_l1d_workaround=default --disable:=sploop --endian=little --hll_source=on --mem_model:code=far --mem_model:data=far --predefine_memory_model_macros --quiet --silicon_version=6500 --symdebug:dwarf 
+	.compiler_opts --c64p_l1d_workaround=default --disable:=sploop --endian=little --hll_source=on --mem_model:code=far --mem_model:const=data --mem_model:data=far --predefine_memory_model_macros --quiet --silicon_version=6500 --symdebug:dwarf 
 
 ;******************************************************************************
 ;* GLOBAL FILE PARAMETERS                                                     *
 ;*                                                                            *
 ;*   Architecture      : TMS320C64x+                                          *
 ;*   Optimization      : Enabled at level 3                                   *
-;*   Optimizing for    : Speed 1st, size 2nd                                  *
-;*                       Based on options: -o3, -ms0                          *
+;*   Optimizing for    : Speed                                                *
+;*                       Based on options: -o3, no -ms                        *
 ;*   Endian            : Little                                               *
 ;*   Interrupt Thrshld : Disabled                                             *
 ;*   Data Access Model : Far                                                  *
@@ -29,8 +29,9 @@
 
 $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("loop_config.c")
-	.dwattr $C$DW$CU, DW_AT_producer("TMS320C6x C/C++ Codegen Unix v6.0.21 Copyright (c) 1996-2008 Texas Instruments Incorporated")
+	.dwattr $C$DW$CU, DW_AT_producer("TMS320C6x C/C++ Codegen Unix v6.1.17 Copyright (c) 1996-2010 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+	.dwattr $C$DW$CU, DW_AT_comp_dir("/home/alfayez/secondary_hd/ti/dsplink_1_65_00_03/dsplink/dsp/src/samples/easycom-dsp-dsplink")
 ;*****************************************************************************
 ;* CINIT RECORDS                                                             *
 ;*****************************************************************************
@@ -75,23 +76,23 @@ _SamplePoolParams:	.usect	".far",4,2
 $C$DW$3	.dwtag  DW_TAG_variable, DW_AT_name("SamplePoolParams")
 	.dwattr $C$DW$3, DW_AT_TI_symbol_name("_SamplePoolParams")
 	.dwattr $C$DW$3, DW_AT_location[DW_OP_addr _SamplePoolParams]
-	.dwattr $C$DW$3, DW_AT_type(*$C$DW$T$138)
+	.dwattr $C$DW$3, DW_AT_type(*$C$DW$T$137)
 	.dwattr $C$DW$3, DW_AT_external
 	.global	_LOOP_Pools
 _LOOP_Pools:	.usect	".far",16,8
 $C$DW$4	.dwtag  DW_TAG_variable, DW_AT_name("LOOP_Pools")
 	.dwattr $C$DW$4, DW_AT_TI_symbol_name("_LOOP_Pools")
 	.dwattr $C$DW$4, DW_AT_location[DW_OP_addr _LOOP_Pools]
-	.dwattr $C$DW$4, DW_AT_type(*$C$DW$T$140)
+	.dwattr $C$DW$4, DW_AT_type(*$C$DW$T$139)
 	.dwattr $C$DW$4, DW_AT_external
 	.global	_POOL_config
 _POOL_config:	.usect	".far",8,4
 $C$DW$5	.dwtag  DW_TAG_variable, DW_AT_name("POOL_config")
 	.dwattr $C$DW$5, DW_AT_TI_symbol_name("_POOL_config")
 	.dwattr $C$DW$5, DW_AT_location[DW_OP_addr _POOL_config]
-	.dwattr $C$DW$5, DW_AT_type(*$C$DW$T$144)
+	.dwattr $C$DW$5, DW_AT_type(*$C$DW$T$142)
 	.dwattr $C$DW$5, DW_AT_external
-;	/home/alfayez/oe/tmp_beagleboard/staging/x86_64-linux/ti-cgt6x-native/bin/opt6x /tmp/14893Gyk9TV /tmp/14893yY5Zmt 
+;	/home/alfayez/secondary_hd/ti/cgt_c6000_6_1_17/bin/opt6x /tmp/06656JiXRucp /tmp/06656BJUEah 
 ;*****************************************************************************
 ;* UNDEFINED EXTERNAL REFERENCES                                             *
 ;*****************************************************************************
@@ -106,15 +107,18 @@ $C$DW$T$3	.dwtag  DW_TAG_pointer_type
 $C$DW$T$20	.dwtag  DW_TAG_typedef, DW_AT_name("Ptr")
 	.dwattr $C$DW$T$20, DW_AT_type(*$C$DW$T$3)
 	.dwattr $C$DW$T$20, DW_AT_language(DW_LANG_C)
-$C$DW$T$21	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$20)
+$C$DW$T$21	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$21, DW_AT_type(*$C$DW$T$20)
 	.dwattr $C$DW$T$21, DW_AT_address_class(0x20)
 
 $C$DW$T$25	.dwtag  DW_TAG_subroutine_type
 	.dwattr $C$DW$T$25, DW_AT_language(DW_LANG_C)
-$C$DW$6	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$20)
+$C$DW$6	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$6, DW_AT_type(*$C$DW$T$20)
 	.dwendtag $C$DW$T$25
 
-$C$DW$T$26	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$25)
+$C$DW$T$26	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$26, DW_AT_type(*$C$DW$T$25)
 	.dwattr $C$DW$T$26, DW_AT_address_class(0x20)
 $C$DW$T$27	.dwtag  DW_TAG_typedef, DW_AT_name("POOL_Close")
 	.dwattr $C$DW$T$27, DW_AT_type(*$C$DW$T$26)
@@ -125,12 +129,16 @@ $C$DW$T$72	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_Post")
 
 $C$DW$T$32	.dwtag  DW_TAG_subroutine_type
 	.dwattr $C$DW$T$32, DW_AT_language(DW_LANG_C)
-$C$DW$7	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$20)
-$C$DW$8	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$20)
-$C$DW$9	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$28)
+$C$DW$7	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$7, DW_AT_type(*$C$DW$T$20)
+$C$DW$8	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$8, DW_AT_type(*$C$DW$T$20)
+$C$DW$9	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$9, DW_AT_type(*$C$DW$T$28)
 	.dwendtag $C$DW$T$32
 
-$C$DW$T$33	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$32)
+$C$DW$T$33	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$33, DW_AT_type(*$C$DW$T$32)
 	.dwattr $C$DW$T$33, DW_AT_address_class(0x20)
 $C$DW$T$34	.dwtag  DW_TAG_typedef, DW_AT_name("POOL_Free")
 	.dwattr $C$DW$T$34, DW_AT_type(*$C$DW$T$33)
@@ -138,7 +146,8 @@ $C$DW$T$34	.dwtag  DW_TAG_typedef, DW_AT_name("POOL_Free")
 
 $C$DW$T$39	.dwtag  DW_TAG_subroutine_type
 	.dwattr $C$DW$T$39, DW_AT_language(DW_LANG_C)
-$C$DW$T$40	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$39)
+$C$DW$T$40	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$40, DW_AT_type(*$C$DW$T$39)
 	.dwattr $C$DW$T$40, DW_AT_address_class(0x20)
 $C$DW$T$41	.dwtag  DW_TAG_typedef, DW_AT_name("POOL_Init")
 	.dwattr $C$DW$T$41, DW_AT_type(*$C$DW$T$40)
@@ -146,17 +155,17 @@ $C$DW$T$41	.dwtag  DW_TAG_typedef, DW_AT_name("POOL_Init")
 $C$DW$T$104	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_MqtInit")
 	.dwattr $C$DW$T$104, DW_AT_type(*$C$DW$T$40)
 	.dwattr $C$DW$T$104, DW_AT_language(DW_LANG_C)
-
-$C$DW$T$116	.dwtag  DW_TAG_subroutine_type
-	.dwattr $C$DW$T$116, DW_AT_language(DW_LANG_C)
-$C$DW$T$4	.dwtag  DW_TAG_base_type, DW_AT_name("bool")
+$C$DW$T$4	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+	.dwattr $C$DW$T$4, DW_AT_name("bool")
 	.dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
-$C$DW$T$5	.dwtag  DW_TAG_base_type, DW_AT_name("signed char")
+$C$DW$T$5	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+	.dwattr $C$DW$T$5, DW_AT_name("signed char")
 	.dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
-$C$DW$T$6	.dwtag  DW_TAG_base_type, DW_AT_name("unsigned char")
+$C$DW$T$6	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+	.dwattr $C$DW$T$6, DW_AT_name("unsigned char")
 	.dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
 $C$DW$T$118	.dwtag  DW_TAG_typedef, DW_AT_name("Uint8")
 	.dwattr $C$DW$T$118, DW_AT_type(*$C$DW$T$6)
@@ -170,11 +179,13 @@ $C$DW$T$120	.dwtag  DW_TAG_typedef, DW_AT_name("SmBits")
 $C$DW$T$121	.dwtag  DW_TAG_typedef, DW_AT_name("Byte")
 	.dwattr $C$DW$T$121, DW_AT_type(*$C$DW$T$120)
 	.dwattr $C$DW$T$121, DW_AT_language(DW_LANG_C)
-$C$DW$T$7	.dwtag  DW_TAG_base_type, DW_AT_name("wchar_t")
+$C$DW$T$7	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+	.dwattr $C$DW$T$7, DW_AT_name("wchar_t")
 	.dwattr $C$DW$T$7, DW_AT_byte_size(0x02)
-$C$DW$T$8	.dwtag  DW_TAG_base_type, DW_AT_name("short")
+$C$DW$T$8	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+	.dwattr $C$DW$T$8, DW_AT_name("short")
 	.dwattr $C$DW$T$8, DW_AT_byte_size(0x02)
 $C$DW$T$122	.dwtag  DW_TAG_typedef, DW_AT_name("Int16")
 	.dwattr $C$DW$T$122, DW_AT_type(*$C$DW$T$8)
@@ -185,8 +196,9 @@ $C$DW$T$123	.dwtag  DW_TAG_typedef, DW_AT_name("MdInt")
 $C$DW$T$124	.dwtag  DW_TAG_typedef, DW_AT_name("Short")
 	.dwattr $C$DW$T$124, DW_AT_type(*$C$DW$T$8)
 	.dwattr $C$DW$T$124, DW_AT_language(DW_LANG_C)
-$C$DW$T$9	.dwtag  DW_TAG_base_type, DW_AT_name("unsigned short")
+$C$DW$T$9	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+	.dwattr $C$DW$T$9, DW_AT_name("unsigned short")
 	.dwattr $C$DW$T$9, DW_AT_byte_size(0x02)
 $C$DW$T$36	.dwtag  DW_TAG_typedef, DW_AT_name("Uint16")
 	.dwattr $C$DW$T$36, DW_AT_type(*$C$DW$T$9)
@@ -201,13 +213,17 @@ $C$DW$T$37	.dwtag  DW_TAG_typedef, DW_AT_name("Bool")
 	.dwattr $C$DW$T$37, DW_AT_type(*$C$DW$T$9)
 	.dwattr $C$DW$T$37, DW_AT_language(DW_LANG_C)
 
-$C$DW$T$69	.dwtag  DW_TAG_subroutine_type, DW_AT_type(*$C$DW$T$37)
+$C$DW$T$69	.dwtag  DW_TAG_subroutine_type
+	.dwattr $C$DW$T$69, DW_AT_type(*$C$DW$T$37)
 	.dwattr $C$DW$T$69, DW_AT_language(DW_LANG_C)
-$C$DW$10	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$20)
-$C$DW$11	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$68)
+$C$DW$10	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$10, DW_AT_type(*$C$DW$T$20)
+$C$DW$11	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$11, DW_AT_type(*$C$DW$T$68)
 	.dwendtag $C$DW$T$69
 
-$C$DW$T$70	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$69)
+$C$DW$T$70	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$70, DW_AT_type(*$C$DW$T$69)
 	.dwattr $C$DW$T$70, DW_AT_address_class(0x20)
 $C$DW$T$71	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_Pend")
 	.dwattr $C$DW$T$71, DW_AT_type(*$C$DW$T$70)
@@ -221,41 +237,53 @@ $C$DW$T$127	.dwtag  DW_TAG_typedef, DW_AT_name("MdBits")
 $C$DW$T$128	.dwtag  DW_TAG_typedef, DW_AT_name("wchar_t")
 	.dwattr $C$DW$T$128, DW_AT_type(*$C$DW$T$9)
 	.dwattr $C$DW$T$128, DW_AT_language(DW_LANG_C)
-$C$DW$T$10	.dwtag  DW_TAG_base_type, DW_AT_name("int")
+$C$DW$T$10	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+	.dwattr $C$DW$T$10, DW_AT_name("int")
 	.dwattr $C$DW$T$10, DW_AT_byte_size(0x04)
 $C$DW$T$19	.dwtag  DW_TAG_typedef, DW_AT_name("Int")
 	.dwattr $C$DW$T$19, DW_AT_type(*$C$DW$T$10)
 	.dwattr $C$DW$T$19, DW_AT_language(DW_LANG_C)
 
-$C$DW$T$22	.dwtag  DW_TAG_subroutine_type, DW_AT_type(*$C$DW$T$19)
+$C$DW$T$22	.dwtag  DW_TAG_subroutine_type
+	.dwattr $C$DW$T$22, DW_AT_type(*$C$DW$T$19)
 	.dwattr $C$DW$T$22, DW_AT_language(DW_LANG_C)
-$C$DW$12	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$21)
-$C$DW$13	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$20)
+$C$DW$12	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$12, DW_AT_type(*$C$DW$T$21)
+$C$DW$13	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$13, DW_AT_type(*$C$DW$T$20)
 	.dwendtag $C$DW$T$22
 
-$C$DW$T$23	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$22)
+$C$DW$T$23	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$23, DW_AT_type(*$C$DW$T$22)
 	.dwattr $C$DW$T$23, DW_AT_address_class(0x20)
 $C$DW$T$24	.dwtag  DW_TAG_typedef, DW_AT_name("POOL_Open")
 	.dwattr $C$DW$T$24, DW_AT_type(*$C$DW$T$23)
 	.dwattr $C$DW$T$24, DW_AT_language(DW_LANG_C)
 
-$C$DW$T$29	.dwtag  DW_TAG_subroutine_type, DW_AT_type(*$C$DW$T$19)
+$C$DW$T$29	.dwtag  DW_TAG_subroutine_type
+	.dwattr $C$DW$T$29, DW_AT_type(*$C$DW$T$19)
 	.dwattr $C$DW$T$29, DW_AT_language(DW_LANG_C)
-$C$DW$14	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$20)
-$C$DW$15	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$21)
-$C$DW$16	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$28)
+$C$DW$14	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$14, DW_AT_type(*$C$DW$T$20)
+$C$DW$15	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$15, DW_AT_type(*$C$DW$T$21)
+$C$DW$16	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$16, DW_AT_type(*$C$DW$T$28)
 	.dwendtag $C$DW$T$29
 
-$C$DW$T$30	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$29)
+$C$DW$T$30	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$30, DW_AT_type(*$C$DW$T$29)
 	.dwattr $C$DW$T$30, DW_AT_address_class(0x20)
 $C$DW$T$31	.dwtag  DW_TAG_typedef, DW_AT_name("POOL_Alloc")
 	.dwattr $C$DW$T$31, DW_AT_type(*$C$DW$T$30)
 	.dwattr $C$DW$T$31, DW_AT_language(DW_LANG_C)
 
-$C$DW$T$48	.dwtag  DW_TAG_subroutine_type, DW_AT_type(*$C$DW$T$19)
+$C$DW$T$48	.dwtag  DW_TAG_subroutine_type
+	.dwattr $C$DW$T$48, DW_AT_type(*$C$DW$T$19)
 	.dwattr $C$DW$T$48, DW_AT_language(DW_LANG_C)
-$C$DW$T$49	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$48)
+$C$DW$T$49	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$49, DW_AT_type(*$C$DW$T$48)
 	.dwattr $C$DW$T$49, DW_AT_address_class(0x20)
 $C$DW$T$50	.dwtag  DW_TAG_typedef, DW_AT_name("Fxn")
 	.dwattr $C$DW$T$50, DW_AT_type(*$C$DW$T$49)
@@ -264,12 +292,15 @@ $C$DW$T$51	.dwtag  DW_TAG_typedef, DW_AT_name("Arg")
 	.dwattr $C$DW$T$51, DW_AT_type(*$C$DW$T$19)
 	.dwattr $C$DW$T$51, DW_AT_language(DW_LANG_C)
 
-$C$DW$T$87	.dwtag  DW_TAG_subroutine_type, DW_AT_type(*$C$DW$T$19)
+$C$DW$T$87	.dwtag  DW_TAG_subroutine_type
+	.dwattr $C$DW$T$87, DW_AT_type(*$C$DW$T$19)
 	.dwattr $C$DW$T$87, DW_AT_language(DW_LANG_C)
-$C$DW$17	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$86)
+$C$DW$17	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$17, DW_AT_type(*$C$DW$T$86)
 	.dwendtag $C$DW$T$87
 
-$C$DW$T$88	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$87)
+$C$DW$T$88	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$88, DW_AT_type(*$C$DW$T$87)
 	.dwattr $C$DW$T$88, DW_AT_address_class(0x20)
 $C$DW$T$89	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_MqtOpen")
 	.dwattr $C$DW$T$89, DW_AT_type(*$C$DW$T$88)
@@ -278,40 +309,55 @@ $C$DW$T$90	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_MqtClose")
 	.dwattr $C$DW$T$90, DW_AT_type(*$C$DW$T$88)
 	.dwattr $C$DW$T$90, DW_AT_language(DW_LANG_C)
 
-$C$DW$T$92	.dwtag  DW_TAG_subroutine_type, DW_AT_type(*$C$DW$T$19)
+$C$DW$T$92	.dwtag  DW_TAG_subroutine_type
+	.dwattr $C$DW$T$92, DW_AT_type(*$C$DW$T$19)
 	.dwattr $C$DW$T$92, DW_AT_language(DW_LANG_C)
-$C$DW$18	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$86)
-$C$DW$19	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$66)
-$C$DW$20	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$37)
-$C$DW$21	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$91)
-$C$DW$22	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$20)
+$C$DW$18	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$18, DW_AT_type(*$C$DW$T$86)
+$C$DW$19	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$19, DW_AT_type(*$C$DW$T$66)
+$C$DW$20	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$20, DW_AT_type(*$C$DW$T$37)
+$C$DW$21	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$21, DW_AT_type(*$C$DW$T$91)
+$C$DW$22	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$22, DW_AT_type(*$C$DW$T$20)
 	.dwendtag $C$DW$T$92
 
-$C$DW$T$93	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$92)
+$C$DW$T$93	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$93, DW_AT_type(*$C$DW$T$92)
 	.dwattr $C$DW$T$93, DW_AT_address_class(0x20)
 $C$DW$T$94	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_MqtLocate")
 	.dwattr $C$DW$T$94, DW_AT_type(*$C$DW$T$93)
 	.dwattr $C$DW$T$94, DW_AT_language(DW_LANG_C)
 
-$C$DW$T$95	.dwtag  DW_TAG_subroutine_type, DW_AT_type(*$C$DW$T$19)
+$C$DW$T$95	.dwtag  DW_TAG_subroutine_type
+	.dwattr $C$DW$T$95, DW_AT_type(*$C$DW$T$19)
 	.dwattr $C$DW$T$95, DW_AT_language(DW_LANG_C)
-$C$DW$23	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$86)
-$C$DW$24	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$81)
+$C$DW$23	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$23, DW_AT_type(*$C$DW$T$86)
+$C$DW$24	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$24, DW_AT_type(*$C$DW$T$81)
 	.dwendtag $C$DW$T$95
 
-$C$DW$T$96	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$95)
+$C$DW$T$96	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$96, DW_AT_type(*$C$DW$T$95)
 	.dwattr $C$DW$T$96, DW_AT_address_class(0x20)
 $C$DW$T$97	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_MqtRelease")
 	.dwattr $C$DW$T$97, DW_AT_type(*$C$DW$T$96)
 	.dwattr $C$DW$T$97, DW_AT_language(DW_LANG_C)
 
-$C$DW$T$100	.dwtag  DW_TAG_subroutine_type, DW_AT_type(*$C$DW$T$19)
+$C$DW$T$100	.dwtag  DW_TAG_subroutine_type
+	.dwattr $C$DW$T$100, DW_AT_type(*$C$DW$T$19)
 	.dwattr $C$DW$T$100, DW_AT_language(DW_LANG_C)
-$C$DW$25	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$86)
-$C$DW$26	.dwtag  DW_TAG_formal_parameter, DW_AT_type(*$C$DW$T$99)
+$C$DW$25	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$25, DW_AT_type(*$C$DW$T$86)
+$C$DW$26	.dwtag  DW_TAG_formal_parameter
+	.dwattr $C$DW$26, DW_AT_type(*$C$DW$T$99)
 	.dwendtag $C$DW$T$100
 
-$C$DW$T$101	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$100)
+$C$DW$T$101	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$101, DW_AT_type(*$C$DW$T$100)
 	.dwattr $C$DW$T$101, DW_AT_address_class(0x20)
 $C$DW$T$102	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_MqtPut")
 	.dwattr $C$DW$T$102, DW_AT_type(*$C$DW$T$101)
@@ -325,8 +371,9 @@ $C$DW$T$130	.dwtag  DW_TAG_typedef, DW_AT_name("LgInt")
 $C$DW$T$131	.dwtag  DW_TAG_typedef, DW_AT_name("ptrdiff_t")
 	.dwattr $C$DW$T$131, DW_AT_type(*$C$DW$T$10)
 	.dwattr $C$DW$T$131, DW_AT_language(DW_LANG_C)
-$C$DW$T$11	.dwtag  DW_TAG_base_type, DW_AT_name("unsigned int")
+$C$DW$T$11	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+	.dwattr $C$DW$T$11, DW_AT_name("unsigned int")
 	.dwattr $C$DW$T$11, DW_AT_byte_size(0x04)
 $C$DW$T$28	.dwtag  DW_TAG_typedef, DW_AT_name("size_t")
 	.dwattr $C$DW$T$28, DW_AT_type(*$C$DW$T$11)
@@ -341,7 +388,8 @@ $C$DW$T$77	.dwtag  DW_TAG_typedef, DW_AT_name("Uint32")
 	.dwattr $C$DW$T$77, DW_AT_type(*$C$DW$T$11)
 	.dwattr $C$DW$T$77, DW_AT_language(DW_LANG_C)
 
-$C$DW$T$78	.dwtag  DW_TAG_array_type, DW_AT_type(*$C$DW$T$77)
+$C$DW$T$78	.dwtag  DW_TAG_array_type
+	.dwattr $C$DW$T$78, DW_AT_type(*$C$DW$T$77)
 	.dwattr $C$DW$T$78, DW_AT_language(DW_LANG_C)
 	.dwattr $C$DW$T$78, DW_AT_byte_size(0x08)
 $C$DW$27	.dwtag  DW_TAG_subrange_type
@@ -351,7 +399,8 @@ $C$DW$27	.dwtag  DW_TAG_subrange_type
 $C$DW$T$81	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_Queue")
 	.dwattr $C$DW$T$81, DW_AT_type(*$C$DW$T$77)
 	.dwattr $C$DW$T$81, DW_AT_language(DW_LANG_C)
-$C$DW$T$91	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$81)
+$C$DW$T$91	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$91, DW_AT_type(*$C$DW$T$81)
 	.dwattr $C$DW$T$91, DW_AT_address_class(0x20)
 $C$DW$T$114	.dwtag  DW_TAG_typedef, DW_AT_name("LgUns")
 	.dwattr $C$DW$T$114, DW_AT_type(*$C$DW$T$11)
@@ -359,57 +408,68 @@ $C$DW$T$114	.dwtag  DW_TAG_typedef, DW_AT_name("LgUns")
 $C$DW$T$132	.dwtag  DW_TAG_typedef, DW_AT_name("LgBits")
 	.dwattr $C$DW$T$132, DW_AT_type(*$C$DW$T$11)
 	.dwattr $C$DW$T$132, DW_AT_language(DW_LANG_C)
-$C$DW$T$12	.dwtag  DW_TAG_base_type, DW_AT_name("long")
+$C$DW$T$12	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+	.dwattr $C$DW$T$12, DW_AT_name("long")
 	.dwattr $C$DW$T$12, DW_AT_byte_size(0x08)
 	.dwattr $C$DW$T$12, DW_AT_bit_size(0x28)
 	.dwattr $C$DW$T$12, DW_AT_bit_offset(0x18)
 $C$DW$T$133	.dwtag  DW_TAG_typedef, DW_AT_name("Long")
 	.dwattr $C$DW$T$133, DW_AT_type(*$C$DW$T$12)
 	.dwattr $C$DW$T$133, DW_AT_language(DW_LANG_C)
-$C$DW$T$13	.dwtag  DW_TAG_base_type, DW_AT_name("unsigned long")
+$C$DW$T$13	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+	.dwattr $C$DW$T$13, DW_AT_name("unsigned long")
 	.dwattr $C$DW$T$13, DW_AT_byte_size(0x08)
 	.dwattr $C$DW$T$13, DW_AT_bit_size(0x28)
 	.dwattr $C$DW$T$13, DW_AT_bit_offset(0x18)
-$C$DW$T$14	.dwtag  DW_TAG_base_type, DW_AT_name("long long")
+$C$DW$T$14	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+	.dwattr $C$DW$T$14, DW_AT_name("long long")
 	.dwattr $C$DW$T$14, DW_AT_byte_size(0x08)
-$C$DW$T$15	.dwtag  DW_TAG_base_type, DW_AT_name("unsigned long long")
+$C$DW$T$15	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+	.dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
 	.dwattr $C$DW$T$15, DW_AT_byte_size(0x08)
-$C$DW$T$16	.dwtag  DW_TAG_base_type, DW_AT_name("float")
+$C$DW$T$16	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+	.dwattr $C$DW$T$16, DW_AT_name("float")
 	.dwattr $C$DW$T$16, DW_AT_byte_size(0x04)
 $C$DW$T$134	.dwtag  DW_TAG_typedef, DW_AT_name("Float")
 	.dwattr $C$DW$T$134, DW_AT_type(*$C$DW$T$16)
 	.dwattr $C$DW$T$134, DW_AT_language(DW_LANG_C)
-$C$DW$T$17	.dwtag  DW_TAG_base_type, DW_AT_name("double")
+$C$DW$T$17	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+	.dwattr $C$DW$T$17, DW_AT_name("double")
 	.dwattr $C$DW$T$17, DW_AT_byte_size(0x08)
-$C$DW$T$18	.dwtag  DW_TAG_base_type, DW_AT_name("long double")
+$C$DW$T$18	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+	.dwattr $C$DW$T$18, DW_AT_name("long double")
 	.dwattr $C$DW$T$18, DW_AT_byte_size(0x08)
 
 $C$DW$T$35	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$35, DW_AT_name("POOL_Fxns")
 	.dwattr $C$DW$T$35, DW_AT_byte_size(0x10)
-$C$DW$28	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$24)
+$C$DW$28	.dwtag  DW_TAG_member
+	.dwattr $C$DW$28, DW_AT_type(*$C$DW$T$24)
 	.dwattr $C$DW$28, DW_AT_name("open")
 	.dwattr $C$DW$28, DW_AT_TI_symbol_name("_open")
 	.dwattr $C$DW$28, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$28, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$29	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$27)
+$C$DW$29	.dwtag  DW_TAG_member
+	.dwattr $C$DW$29, DW_AT_type(*$C$DW$T$27)
 	.dwattr $C$DW$29, DW_AT_name("close")
 	.dwattr $C$DW$29, DW_AT_TI_symbol_name("_close")
 	.dwattr $C$DW$29, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
 	.dwattr $C$DW$29, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$30	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$31)
+$C$DW$30	.dwtag  DW_TAG_member
+	.dwattr $C$DW$30, DW_AT_type(*$C$DW$T$31)
 	.dwattr $C$DW$30, DW_AT_name("alloc")
 	.dwattr $C$DW$30, DW_AT_TI_symbol_name("_alloc")
 	.dwattr $C$DW$30, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
 	.dwattr $C$DW$30, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$31	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$34)
+$C$DW$31	.dwtag  DW_TAG_member
+	.dwattr $C$DW$31, DW_AT_type(*$C$DW$T$34)
 	.dwattr $C$DW$31, DW_AT_name("free")
 	.dwattr $C$DW$31, DW_AT_TI_symbol_name("_free")
 	.dwattr $C$DW$31, DW_AT_data_member_location[DW_OP_plus_uconst 0xc]
@@ -419,7 +479,8 @@ $C$DW$31	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$34)
 $C$DW$T$42	.dwtag  DW_TAG_typedef, DW_AT_name("POOL_Fxns")
 	.dwattr $C$DW$T$42, DW_AT_type(*$C$DW$T$35)
 	.dwattr $C$DW$T$42, DW_AT_language(DW_LANG_C)
-$C$DW$T$43	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$42)
+$C$DW$T$43	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$43, DW_AT_type(*$C$DW$T$42)
 	.dwattr $C$DW$T$43, DW_AT_address_class(0x20)
 $C$DW$T$135	.dwtag  DW_TAG_const_type
 	.dwattr $C$DW$T$135, DW_AT_type(*$C$DW$T$42)
@@ -427,41 +488,47 @@ $C$DW$T$135	.dwtag  DW_TAG_const_type
 $C$DW$T$38	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$38, DW_AT_name("SMAPOOL_Params_tag")
 	.dwattr $C$DW$T$38, DW_AT_byte_size(0x04)
-$C$DW$32	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$36)
+$C$DW$32	.dwtag  DW_TAG_member
+	.dwattr $C$DW$32, DW_AT_type(*$C$DW$T$36)
 	.dwattr $C$DW$32, DW_AT_name("poolId")
 	.dwattr $C$DW$32, DW_AT_TI_symbol_name("_poolId")
 	.dwattr $C$DW$32, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$32, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$33	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$37)
+$C$DW$33	.dwtag  DW_TAG_member
+	.dwattr $C$DW$33, DW_AT_type(*$C$DW$T$37)
 	.dwattr $C$DW$33, DW_AT_name("exactMatchReq")
 	.dwattr $C$DW$33, DW_AT_TI_symbol_name("_exactMatchReq")
 	.dwattr $C$DW$33, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
 	.dwattr $C$DW$33, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$38
 
-$C$DW$T$138	.dwtag  DW_TAG_typedef, DW_AT_name("SMAPOOL_Params")
-	.dwattr $C$DW$T$138, DW_AT_type(*$C$DW$T$38)
-	.dwattr $C$DW$T$138, DW_AT_language(DW_LANG_C)
+$C$DW$T$137	.dwtag  DW_TAG_typedef, DW_AT_name("SMAPOOL_Params")
+	.dwattr $C$DW$T$137, DW_AT_type(*$C$DW$T$38)
+	.dwattr $C$DW$T$137, DW_AT_language(DW_LANG_C)
 
 $C$DW$T$44	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$44, DW_AT_name("POOL_Obj")
 	.dwattr $C$DW$T$44, DW_AT_byte_size(0x10)
-$C$DW$34	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$41)
+$C$DW$34	.dwtag  DW_TAG_member
+	.dwattr $C$DW$34, DW_AT_type(*$C$DW$T$41)
 	.dwattr $C$DW$34, DW_AT_name("initFxn")
 	.dwattr $C$DW$34, DW_AT_TI_symbol_name("_initFxn")
 	.dwattr $C$DW$34, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$34, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$35	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$43)
+$C$DW$35	.dwtag  DW_TAG_member
+	.dwattr $C$DW$35, DW_AT_type(*$C$DW$T$43)
 	.dwattr $C$DW$35, DW_AT_name("fxns")
 	.dwattr $C$DW$35, DW_AT_TI_symbol_name("_fxns")
 	.dwattr $C$DW$35, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
 	.dwattr $C$DW$35, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$36	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$20)
+$C$DW$36	.dwtag  DW_TAG_member
+	.dwattr $C$DW$36, DW_AT_type(*$C$DW$T$20)
 	.dwattr $C$DW$36, DW_AT_name("params")
 	.dwattr $C$DW$36, DW_AT_TI_symbol_name("_params")
 	.dwattr $C$DW$36, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
 	.dwattr $C$DW$36, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$37	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$20)
+$C$DW$37	.dwtag  DW_TAG_member
+	.dwattr $C$DW$37, DW_AT_type(*$C$DW$T$20)
 	.dwattr $C$DW$37, DW_AT_name("object")
 	.dwattr $C$DW$37, DW_AT_TI_symbol_name("_object")
 	.dwattr $C$DW$37, DW_AT_data_member_location[DW_OP_plus_uconst 0xc]
@@ -471,221 +538,249 @@ $C$DW$37	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$20)
 $C$DW$T$45	.dwtag  DW_TAG_typedef, DW_AT_name("POOL_Obj")
 	.dwattr $C$DW$T$45, DW_AT_type(*$C$DW$T$44)
 	.dwattr $C$DW$T$45, DW_AT_language(DW_LANG_C)
-$C$DW$T$46	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$45)
+$C$DW$T$46	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$46, DW_AT_type(*$C$DW$T$45)
 	.dwattr $C$DW$T$46, DW_AT_address_class(0x20)
 
-$C$DW$T$140	.dwtag  DW_TAG_array_type, DW_AT_type(*$C$DW$T$45)
-	.dwattr $C$DW$T$140, DW_AT_language(DW_LANG_C)
-	.dwattr $C$DW$T$140, DW_AT_byte_size(0x10)
+$C$DW$T$139	.dwtag  DW_TAG_array_type
+	.dwattr $C$DW$T$139, DW_AT_type(*$C$DW$T$45)
+	.dwattr $C$DW$T$139, DW_AT_language(DW_LANG_C)
+	.dwattr $C$DW$T$139, DW_AT_byte_size(0x10)
 $C$DW$38	.dwtag  DW_TAG_subrange_type
 	.dwattr $C$DW$38, DW_AT_upper_bound(0x00)
-	.dwendtag $C$DW$T$140
+	.dwendtag $C$DW$T$139
 
-$C$DW$T$141	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$44)
-	.dwattr $C$DW$T$141, DW_AT_address_class(0x20)
-$C$DW$T$142	.dwtag  DW_TAG_typedef, DW_AT_name("POOL_Handle")
-	.dwattr $C$DW$T$142, DW_AT_type(*$C$DW$T$141)
-	.dwattr $C$DW$T$142, DW_AT_language(DW_LANG_C)
+$C$DW$T$140	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$140, DW_AT_type(*$C$DW$T$44)
+	.dwattr $C$DW$T$140, DW_AT_address_class(0x20)
+$C$DW$T$141	.dwtag  DW_TAG_typedef, DW_AT_name("POOL_Handle")
+	.dwattr $C$DW$T$141, DW_AT_type(*$C$DW$T$140)
+	.dwattr $C$DW$T$141, DW_AT_language(DW_LANG_C)
 
 $C$DW$T$47	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$47, DW_AT_name("POOL_Config")
 	.dwattr $C$DW$T$47, DW_AT_byte_size(0x08)
-$C$DW$39	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$46)
+$C$DW$39	.dwtag  DW_TAG_member
+	.dwattr $C$DW$39, DW_AT_type(*$C$DW$T$46)
 	.dwattr $C$DW$39, DW_AT_name("allocators")
 	.dwattr $C$DW$39, DW_AT_TI_symbol_name("_allocators")
 	.dwattr $C$DW$39, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$39, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$40	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$36)
+$C$DW$40	.dwtag  DW_TAG_member
+	.dwattr $C$DW$40, DW_AT_type(*$C$DW$T$36)
 	.dwattr $C$DW$40, DW_AT_name("numAllocators")
 	.dwattr $C$DW$40, DW_AT_TI_symbol_name("_numAllocators")
 	.dwattr $C$DW$40, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
 	.dwattr $C$DW$40, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$47
 
-$C$DW$T$144	.dwtag  DW_TAG_typedef, DW_AT_name("POOL_Config")
-	.dwattr $C$DW$T$144, DW_AT_type(*$C$DW$T$47)
-	.dwattr $C$DW$T$144, DW_AT_language(DW_LANG_C)
+$C$DW$T$142	.dwtag  DW_TAG_typedef, DW_AT_name("POOL_Config")
+	.dwattr $C$DW$T$142, DW_AT_type(*$C$DW$T$47)
+	.dwattr $C$DW$T$142, DW_AT_language(DW_LANG_C)
 
 $C$DW$T$52	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$52, DW_AT_name("FXN_Obj")
 	.dwattr $C$DW$T$52, DW_AT_byte_size(0x0c)
-$C$DW$41	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$50)
+$C$DW$41	.dwtag  DW_TAG_member
+	.dwattr $C$DW$41, DW_AT_type(*$C$DW$T$50)
 	.dwattr $C$DW$41, DW_AT_name("fxn")
 	.dwattr $C$DW$41, DW_AT_TI_symbol_name("_fxn")
 	.dwattr $C$DW$41, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$41, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$42	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$51)
+$C$DW$42	.dwtag  DW_TAG_member
+	.dwattr $C$DW$42, DW_AT_type(*$C$DW$T$51)
 	.dwattr $C$DW$42, DW_AT_name("arg1")
 	.dwattr $C$DW$42, DW_AT_TI_symbol_name("_arg1")
 	.dwattr $C$DW$42, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
 	.dwattr $C$DW$42, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$43	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$51)
+$C$DW$43	.dwtag  DW_TAG_member
+	.dwattr $C$DW$43, DW_AT_type(*$C$DW$T$51)
 	.dwattr $C$DW$43, DW_AT_name("arg0")
 	.dwattr $C$DW$43, DW_AT_TI_symbol_name("_arg0")
 	.dwattr $C$DW$43, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
 	.dwattr $C$DW$43, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$52
 
-$C$DW$T$145	.dwtag  DW_TAG_typedef, DW_AT_name("FXN_Obj")
-	.dwattr $C$DW$T$145, DW_AT_type(*$C$DW$T$52)
+$C$DW$T$143	.dwtag  DW_TAG_typedef, DW_AT_name("FXN_Obj")
+	.dwattr $C$DW$T$143, DW_AT_type(*$C$DW$T$52)
+	.dwattr $C$DW$T$143, DW_AT_language(DW_LANG_C)
+$C$DW$T$144	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$144, DW_AT_type(*$C$DW$T$52)
+	.dwattr $C$DW$T$144, DW_AT_address_class(0x20)
+$C$DW$T$145	.dwtag  DW_TAG_typedef, DW_AT_name("FXN_Handle")
+	.dwattr $C$DW$T$145, DW_AT_type(*$C$DW$T$144)
 	.dwattr $C$DW$T$145, DW_AT_language(DW_LANG_C)
-$C$DW$T$146	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$52)
-	.dwattr $C$DW$T$146, DW_AT_address_class(0x20)
-$C$DW$T$147	.dwtag  DW_TAG_typedef, DW_AT_name("FXN_Handle")
-	.dwattr $C$DW$T$147, DW_AT_type(*$C$DW$T$146)
-	.dwattr $C$DW$T$147, DW_AT_language(DW_LANG_C)
 
 $C$DW$T$53	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$53, DW_AT_name("SYS_Config")
 	.dwattr $C$DW$T$53, DW_AT_byte_size(0x10)
-$C$DW$44	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$50)
+$C$DW$44	.dwtag  DW_TAG_member
+	.dwattr $C$DW$44, DW_AT_type(*$C$DW$T$50)
 	.dwattr $C$DW$44, DW_AT_name("ABORTFXN")
 	.dwattr $C$DW$44, DW_AT_TI_symbol_name("_ABORTFXN")
 	.dwattr $C$DW$44, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$44, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$45	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$50)
+$C$DW$45	.dwtag  DW_TAG_member
+	.dwattr $C$DW$45, DW_AT_type(*$C$DW$T$50)
 	.dwattr $C$DW$45, DW_AT_name("ERRORFXN")
 	.dwattr $C$DW$45, DW_AT_TI_symbol_name("_ERRORFXN")
 	.dwattr $C$DW$45, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
 	.dwattr $C$DW$45, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$46	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$50)
+$C$DW$46	.dwtag  DW_TAG_member
+	.dwattr $C$DW$46, DW_AT_type(*$C$DW$T$50)
 	.dwattr $C$DW$46, DW_AT_name("EXITFXN")
 	.dwattr $C$DW$46, DW_AT_TI_symbol_name("_EXITFXN")
 	.dwattr $C$DW$46, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
 	.dwattr $C$DW$46, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$47	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$50)
+$C$DW$47	.dwtag  DW_TAG_member
+	.dwattr $C$DW$47, DW_AT_type(*$C$DW$T$50)
 	.dwattr $C$DW$47, DW_AT_name("PUTCFXN")
 	.dwattr $C$DW$47, DW_AT_TI_symbol_name("_PUTCFXN")
 	.dwattr $C$DW$47, DW_AT_data_member_location[DW_OP_plus_uconst 0xc]
 	.dwattr $C$DW$47, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$53
 
-$C$DW$T$148	.dwtag  DW_TAG_typedef, DW_AT_name("SYS_Config")
-	.dwattr $C$DW$T$148, DW_AT_type(*$C$DW$T$53)
-	.dwattr $C$DW$T$148, DW_AT_language(DW_LANG_C)
+$C$DW$T$146	.dwtag  DW_TAG_typedef, DW_AT_name("SYS_Config")
+	.dwattr $C$DW$T$146, DW_AT_type(*$C$DW$T$53)
+	.dwattr $C$DW$T$146, DW_AT_language(DW_LANG_C)
 
 $C$DW$T$54	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$54, DW_AT_name("MEM_Attrs")
 	.dwattr $C$DW$T$54, DW_AT_byte_size(0x04)
-$C$DW$48	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$19)
+$C$DW$48	.dwtag  DW_TAG_member
+	.dwattr $C$DW$48, DW_AT_type(*$C$DW$T$19)
 	.dwattr $C$DW$48, DW_AT_name("space")
 	.dwattr $C$DW$48, DW_AT_TI_symbol_name("_space")
 	.dwattr $C$DW$48, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$48, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$54
 
-$C$DW$T$149	.dwtag  DW_TAG_typedef, DW_AT_name("MEM_Attrs")
-	.dwattr $C$DW$T$149, DW_AT_type(*$C$DW$T$54)
-	.dwattr $C$DW$T$149, DW_AT_language(DW_LANG_C)
+$C$DW$T$147	.dwtag  DW_TAG_typedef, DW_AT_name("MEM_Attrs")
+	.dwattr $C$DW$T$147, DW_AT_type(*$C$DW$T$54)
+	.dwattr $C$DW$T$147, DW_AT_language(DW_LANG_C)
 
 $C$DW$T$55	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$55, DW_AT_name("MEM_Config")
 	.dwattr $C$DW$T$55, DW_AT_byte_size(0x04)
-$C$DW$49	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$19)
+$C$DW$49	.dwtag  DW_TAG_member
+	.dwattr $C$DW$49, DW_AT_type(*$C$DW$T$19)
 	.dwattr $C$DW$49, DW_AT_name("MALLOCSEG")
 	.dwattr $C$DW$49, DW_AT_TI_symbol_name("_MALLOCSEG")
 	.dwattr $C$DW$49, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$49, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$55
 
-$C$DW$T$150	.dwtag  DW_TAG_typedef, DW_AT_name("MEM_Config")
-	.dwattr $C$DW$T$150, DW_AT_type(*$C$DW$T$55)
-	.dwattr $C$DW$T$150, DW_AT_language(DW_LANG_C)
+$C$DW$T$148	.dwtag  DW_TAG_typedef, DW_AT_name("MEM_Config")
+	.dwattr $C$DW$T$148, DW_AT_type(*$C$DW$T$55)
+	.dwattr $C$DW$T$148, DW_AT_language(DW_LANG_C)
 
 $C$DW$T$57	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$57, DW_AT_name("MEM_Segment")
 	.dwattr $C$DW$T$57, DW_AT_byte_size(0x0c)
-$C$DW$50	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$20)
+$C$DW$50	.dwtag  DW_TAG_member
+	.dwattr $C$DW$50, DW_AT_type(*$C$DW$T$20)
 	.dwattr $C$DW$50, DW_AT_name("base")
 	.dwattr $C$DW$50, DW_AT_TI_symbol_name("_base")
 	.dwattr $C$DW$50, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$50, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$51	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$56)
+$C$DW$51	.dwtag  DW_TAG_member
+	.dwattr $C$DW$51, DW_AT_type(*$C$DW$T$56)
 	.dwattr $C$DW$51, DW_AT_name("length")
 	.dwattr $C$DW$51, DW_AT_TI_symbol_name("_length")
 	.dwattr $C$DW$51, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
 	.dwattr $C$DW$51, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$52	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$19)
+$C$DW$52	.dwtag  DW_TAG_member
+	.dwattr $C$DW$52, DW_AT_type(*$C$DW$T$19)
 	.dwattr $C$DW$52, DW_AT_name("space")
 	.dwattr $C$DW$52, DW_AT_TI_symbol_name("_space")
 	.dwattr $C$DW$52, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
 	.dwattr $C$DW$52, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$57
 
-$C$DW$T$151	.dwtag  DW_TAG_typedef, DW_AT_name("MEM_Segment")
-	.dwattr $C$DW$T$151, DW_AT_type(*$C$DW$T$57)
-	.dwattr $C$DW$T$151, DW_AT_language(DW_LANG_C)
+$C$DW$T$149	.dwtag  DW_TAG_typedef, DW_AT_name("MEM_Segment")
+	.dwattr $C$DW$T$149, DW_AT_type(*$C$DW$T$57)
+	.dwattr $C$DW$T$149, DW_AT_language(DW_LANG_C)
 
 $C$DW$T$58	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$58, DW_AT_name("MEM_Stat")
 	.dwattr $C$DW$T$58, DW_AT_byte_size(0x10)
-$C$DW$53	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$56)
+$C$DW$53	.dwtag  DW_TAG_member
+	.dwattr $C$DW$53, DW_AT_type(*$C$DW$T$56)
 	.dwattr $C$DW$53, DW_AT_name("size")
 	.dwattr $C$DW$53, DW_AT_TI_symbol_name("_size")
 	.dwattr $C$DW$53, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$53, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$54	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$56)
+$C$DW$54	.dwtag  DW_TAG_member
+	.dwattr $C$DW$54, DW_AT_type(*$C$DW$T$56)
 	.dwattr $C$DW$54, DW_AT_name("used")
 	.dwattr $C$DW$54, DW_AT_TI_symbol_name("_used")
 	.dwattr $C$DW$54, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
 	.dwattr $C$DW$54, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$55	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$28)
+$C$DW$55	.dwtag  DW_TAG_member
+	.dwattr $C$DW$55, DW_AT_type(*$C$DW$T$28)
 	.dwattr $C$DW$55, DW_AT_name("length")
 	.dwattr $C$DW$55, DW_AT_TI_symbol_name("_length")
 	.dwattr $C$DW$55, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
 	.dwattr $C$DW$55, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$56	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$19)
+$C$DW$56	.dwtag  DW_TAG_member
+	.dwattr $C$DW$56, DW_AT_type(*$C$DW$T$19)
 	.dwattr $C$DW$56, DW_AT_name("space")
 	.dwattr $C$DW$56, DW_AT_TI_symbol_name("_space")
 	.dwattr $C$DW$56, DW_AT_data_member_location[DW_OP_plus_uconst 0xc]
 	.dwattr $C$DW$56, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$58
 
-$C$DW$T$152	.dwtag  DW_TAG_typedef, DW_AT_name("MEM_Stat")
-	.dwattr $C$DW$T$152, DW_AT_type(*$C$DW$T$58)
-	.dwattr $C$DW$T$152, DW_AT_language(DW_LANG_C)
+$C$DW$T$150	.dwtag  DW_TAG_typedef, DW_AT_name("MEM_Stat")
+	.dwattr $C$DW$T$150, DW_AT_type(*$C$DW$T$58)
+	.dwattr $C$DW$T$150, DW_AT_language(DW_LANG_C)
 
 $C$DW$T$60	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$60, DW_AT_name("MEM_Header")
 	.dwattr $C$DW$T$60, DW_AT_byte_size(0x08)
-$C$DW$57	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$59)
+$C$DW$57	.dwtag  DW_TAG_member
+	.dwattr $C$DW$57, DW_AT_type(*$C$DW$T$59)
 	.dwattr $C$DW$57, DW_AT_name("next")
 	.dwattr $C$DW$57, DW_AT_TI_symbol_name("_next")
 	.dwattr $C$DW$57, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$57, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$58	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$56)
+$C$DW$58	.dwtag  DW_TAG_member
+	.dwattr $C$DW$58, DW_AT_type(*$C$DW$T$56)
 	.dwattr $C$DW$58, DW_AT_name("size")
 	.dwattr $C$DW$58, DW_AT_TI_symbol_name("_size")
 	.dwattr $C$DW$58, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
 	.dwattr $C$DW$58, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$60
 
-$C$DW$T$59	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$60)
+$C$DW$T$59	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$59, DW_AT_type(*$C$DW$T$60)
 	.dwattr $C$DW$T$59, DW_AT_address_class(0x20)
-$C$DW$T$153	.dwtag  DW_TAG_typedef, DW_AT_name("MEM_Header")
-	.dwattr $C$DW$T$153, DW_AT_type(*$C$DW$T$60)
-	.dwattr $C$DW$T$153, DW_AT_language(DW_LANG_C)
+$C$DW$T$151	.dwtag  DW_TAG_typedef, DW_AT_name("MEM_Header")
+	.dwattr $C$DW$T$151, DW_AT_type(*$C$DW$T$60)
+	.dwattr $C$DW$T$151, DW_AT_language(DW_LANG_C)
 
 $C$DW$T$62	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$62, DW_AT_name("QUE_Elem")
 	.dwattr $C$DW$T$62, DW_AT_byte_size(0x08)
-$C$DW$59	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$61)
+$C$DW$59	.dwtag  DW_TAG_member
+	.dwattr $C$DW$59, DW_AT_type(*$C$DW$T$61)
 	.dwattr $C$DW$59, DW_AT_name("next")
 	.dwattr $C$DW$59, DW_AT_TI_symbol_name("_next")
 	.dwattr $C$DW$59, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$59, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$60	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$61)
+$C$DW$60	.dwtag  DW_TAG_member
+	.dwattr $C$DW$60, DW_AT_type(*$C$DW$T$61)
 	.dwattr $C$DW$60, DW_AT_name("prev")
 	.dwattr $C$DW$60, DW_AT_TI_symbol_name("_prev")
 	.dwattr $C$DW$60, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
 	.dwattr $C$DW$60, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$62
 
-$C$DW$T$61	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$62)
+$C$DW$T$61	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$61, DW_AT_type(*$C$DW$T$62)
 	.dwattr $C$DW$T$61, DW_AT_address_class(0x20)
-$C$DW$T$154	.dwtag  DW_TAG_typedef, DW_AT_name("QUE_Handle")
-	.dwattr $C$DW$T$154, DW_AT_type(*$C$DW$T$61)
-	.dwattr $C$DW$T$154, DW_AT_language(DW_LANG_C)
+$C$DW$T$152	.dwtag  DW_TAG_typedef, DW_AT_name("QUE_Handle")
+	.dwattr $C$DW$T$152, DW_AT_type(*$C$DW$T$61)
+	.dwattr $C$DW$T$152, DW_AT_language(DW_LANG_C)
 $C$DW$T$67	.dwtag  DW_TAG_typedef, DW_AT_name("QUE_Obj")
 	.dwattr $C$DW$T$67, DW_AT_type(*$C$DW$T$62)
 	.dwattr $C$DW$T$67, DW_AT_language(DW_LANG_C)
@@ -696,66 +791,75 @@ $C$DW$T$113	.dwtag  DW_TAG_typedef, DW_AT_name("QUE_Elem")
 $C$DW$T$63	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$63, DW_AT_name("QUE_Attrs")
 	.dwattr $C$DW$T$63, DW_AT_byte_size(0x04)
-$C$DW$61	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$19)
+$C$DW$61	.dwtag  DW_TAG_member
+	.dwattr $C$DW$61, DW_AT_type(*$C$DW$T$19)
 	.dwattr $C$DW$61, DW_AT_name("dummy")
 	.dwattr $C$DW$61, DW_AT_TI_symbol_name("_dummy")
 	.dwattr $C$DW$61, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$61, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$63
 
-$C$DW$T$155	.dwtag  DW_TAG_typedef, DW_AT_name("QUE_Attrs")
-	.dwattr $C$DW$T$155, DW_AT_type(*$C$DW$T$63)
-	.dwattr $C$DW$T$155, DW_AT_language(DW_LANG_C)
-$C$DW$T$64	.dwtag  DW_TAG_base_type, DW_AT_name("signed char")
+$C$DW$T$153	.dwtag  DW_TAG_typedef, DW_AT_name("QUE_Attrs")
+	.dwattr $C$DW$T$153, DW_AT_type(*$C$DW$T$63)
+	.dwattr $C$DW$T$153, DW_AT_language(DW_LANG_C)
+$C$DW$T$64	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$64, DW_AT_encoding(DW_ATE_signed_char)
+	.dwattr $C$DW$T$64, DW_AT_name("signed char")
 	.dwattr $C$DW$T$64, DW_AT_byte_size(0x01)
-$C$DW$T$65	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$64)
+$C$DW$T$65	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$65, DW_AT_type(*$C$DW$T$64)
 	.dwattr $C$DW$T$65, DW_AT_address_class(0x20)
 $C$DW$T$66	.dwtag  DW_TAG_typedef, DW_AT_name("String")
 	.dwattr $C$DW$T$66, DW_AT_type(*$C$DW$T$65)
 	.dwattr $C$DW$T$66, DW_AT_language(DW_LANG_C)
-$C$DW$T$156	.dwtag  DW_TAG_typedef, DW_AT_name("va_list")
-	.dwattr $C$DW$T$156, DW_AT_type(*$C$DW$T$65)
+$C$DW$T$154	.dwtag  DW_TAG_typedef, DW_AT_name("va_list")
+	.dwattr $C$DW$T$154, DW_AT_type(*$C$DW$T$65)
+	.dwattr $C$DW$T$154, DW_AT_language(DW_LANG_C)
+$C$DW$T$155	.dwtag  DW_TAG_typedef, DW_AT_name("Char")
+	.dwattr $C$DW$T$155, DW_AT_type(*$C$DW$T$64)
+	.dwattr $C$DW$T$155, DW_AT_language(DW_LANG_C)
+$C$DW$T$156	.dwtag  DW_TAG_typedef, DW_AT_name("Int8")
+	.dwattr $C$DW$T$156, DW_AT_type(*$C$DW$T$64)
 	.dwattr $C$DW$T$156, DW_AT_language(DW_LANG_C)
-$C$DW$T$157	.dwtag  DW_TAG_typedef, DW_AT_name("Char")
+$C$DW$T$157	.dwtag  DW_TAG_typedef, DW_AT_name("SmInt")
 	.dwattr $C$DW$T$157, DW_AT_type(*$C$DW$T$64)
 	.dwattr $C$DW$T$157, DW_AT_language(DW_LANG_C)
-$C$DW$T$158	.dwtag  DW_TAG_typedef, DW_AT_name("Int8")
-	.dwattr $C$DW$T$158, DW_AT_type(*$C$DW$T$64)
-	.dwattr $C$DW$T$158, DW_AT_language(DW_LANG_C)
-$C$DW$T$159	.dwtag  DW_TAG_typedef, DW_AT_name("SmInt")
-	.dwattr $C$DW$T$159, DW_AT_type(*$C$DW$T$64)
-	.dwattr $C$DW$T$159, DW_AT_language(DW_LANG_C)
 
 $C$DW$T$73	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$73, DW_AT_name("MSGQ_Obj")
 	.dwattr $C$DW$T$73, DW_AT_byte_size(0x1c)
-$C$DW$62	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$66)
+$C$DW$62	.dwtag  DW_TAG_member
+	.dwattr $C$DW$62, DW_AT_type(*$C$DW$T$66)
 	.dwattr $C$DW$62, DW_AT_name("name")
 	.dwattr $C$DW$62, DW_AT_TI_symbol_name("_name")
 	.dwattr $C$DW$62, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$62, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$63	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$67)
+$C$DW$63	.dwtag  DW_TAG_member
+	.dwattr $C$DW$63, DW_AT_type(*$C$DW$T$67)
 	.dwattr $C$DW$63, DW_AT_name("queue")
 	.dwattr $C$DW$63, DW_AT_TI_symbol_name("_queue")
 	.dwattr $C$DW$63, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
 	.dwattr $C$DW$63, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$64	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$20)
+$C$DW$64	.dwtag  DW_TAG_member
+	.dwattr $C$DW$64, DW_AT_type(*$C$DW$T$20)
 	.dwattr $C$DW$64, DW_AT_name("notifyHandle")
 	.dwattr $C$DW$64, DW_AT_TI_symbol_name("_notifyHandle")
 	.dwattr $C$DW$64, DW_AT_data_member_location[DW_OP_plus_uconst 0xc]
 	.dwattr $C$DW$64, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$65	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$71)
+$C$DW$65	.dwtag  DW_TAG_member
+	.dwattr $C$DW$65, DW_AT_type(*$C$DW$T$71)
 	.dwattr $C$DW$65, DW_AT_name("pend")
 	.dwattr $C$DW$65, DW_AT_TI_symbol_name("_pend")
 	.dwattr $C$DW$65, DW_AT_data_member_location[DW_OP_plus_uconst 0x10]
 	.dwattr $C$DW$65, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$66	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$72)
+$C$DW$66	.dwtag  DW_TAG_member
+	.dwattr $C$DW$66, DW_AT_type(*$C$DW$T$72)
 	.dwattr $C$DW$66, DW_AT_name("post")
 	.dwattr $C$DW$66, DW_AT_TI_symbol_name("_post")
 	.dwattr $C$DW$66, DW_AT_data_member_location[DW_OP_plus_uconst 0x14]
 	.dwattr $C$DW$66, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$67	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$68)
+$C$DW$67	.dwtag  DW_TAG_member
+	.dwattr $C$DW$67, DW_AT_type(*$C$DW$T$68)
 	.dwattr $C$DW$67, DW_AT_name("status")
 	.dwattr $C$DW$67, DW_AT_TI_symbol_name("_status")
 	.dwattr $C$DW$67, DW_AT_data_member_location[DW_OP_plus_uconst 0x18]
@@ -765,105 +869,120 @@ $C$DW$67	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$68)
 $C$DW$T$108	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_Obj")
 	.dwattr $C$DW$T$108, DW_AT_type(*$C$DW$T$73)
 	.dwattr $C$DW$T$108, DW_AT_language(DW_LANG_C)
-$C$DW$T$109	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$108)
+$C$DW$T$109	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$109, DW_AT_type(*$C$DW$T$108)
 	.dwattr $C$DW$T$109, DW_AT_address_class(0x20)
-$C$DW$T$160	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$73)
-	.dwattr $C$DW$T$160, DW_AT_address_class(0x20)
-$C$DW$T$161	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_Handle")
-	.dwattr $C$DW$T$161, DW_AT_type(*$C$DW$T$160)
-	.dwattr $C$DW$T$161, DW_AT_language(DW_LANG_C)
+$C$DW$T$158	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$158, DW_AT_type(*$C$DW$T$73)
+	.dwattr $C$DW$T$158, DW_AT_address_class(0x20)
+$C$DW$T$159	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_Handle")
+	.dwattr $C$DW$T$159, DW_AT_type(*$C$DW$T$158)
+	.dwattr $C$DW$T$159, DW_AT_language(DW_LANG_C)
 
 $C$DW$T$74	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$74, DW_AT_name("MSGQ_Attrs")
 	.dwattr $C$DW$T$74, DW_AT_byte_size(0x0c)
-$C$DW$68	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$20)
+$C$DW$68	.dwtag  DW_TAG_member
+	.dwattr $C$DW$68, DW_AT_type(*$C$DW$T$20)
 	.dwattr $C$DW$68, DW_AT_name("notifyHandle")
 	.dwattr $C$DW$68, DW_AT_TI_symbol_name("_notifyHandle")
 	.dwattr $C$DW$68, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$68, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$69	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$71)
+$C$DW$69	.dwtag  DW_TAG_member
+	.dwattr $C$DW$69, DW_AT_type(*$C$DW$T$71)
 	.dwattr $C$DW$69, DW_AT_name("pend")
 	.dwattr $C$DW$69, DW_AT_TI_symbol_name("_pend")
 	.dwattr $C$DW$69, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
 	.dwattr $C$DW$69, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$70	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$72)
+$C$DW$70	.dwtag  DW_TAG_member
+	.dwattr $C$DW$70, DW_AT_type(*$C$DW$T$72)
 	.dwattr $C$DW$70, DW_AT_name("post")
 	.dwattr $C$DW$70, DW_AT_TI_symbol_name("_post")
 	.dwattr $C$DW$70, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
 	.dwattr $C$DW$70, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$74
 
-$C$DW$T$162	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_Attrs")
-	.dwattr $C$DW$T$162, DW_AT_type(*$C$DW$T$74)
-	.dwattr $C$DW$T$162, DW_AT_language(DW_LANG_C)
+$C$DW$T$160	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_Attrs")
+	.dwattr $C$DW$T$160, DW_AT_type(*$C$DW$T$74)
+	.dwattr $C$DW$T$160, DW_AT_language(DW_LANG_C)
 
 $C$DW$T$75	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$75, DW_AT_name("MSGQ_LocateAttrs")
 	.dwattr $C$DW$T$75, DW_AT_byte_size(0x04)
-$C$DW$71	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$68)
+$C$DW$71	.dwtag  DW_TAG_member
+	.dwattr $C$DW$71, DW_AT_type(*$C$DW$T$68)
 	.dwattr $C$DW$71, DW_AT_name("timeout")
 	.dwattr $C$DW$71, DW_AT_TI_symbol_name("_timeout")
 	.dwattr $C$DW$71, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$71, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$75
 
-$C$DW$T$163	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_LocateAttrs")
-	.dwattr $C$DW$T$163, DW_AT_type(*$C$DW$T$75)
-	.dwattr $C$DW$T$163, DW_AT_language(DW_LANG_C)
+$C$DW$T$161	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_LocateAttrs")
+	.dwattr $C$DW$T$161, DW_AT_type(*$C$DW$T$75)
+	.dwattr $C$DW$T$161, DW_AT_language(DW_LANG_C)
 
 $C$DW$T$76	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$76, DW_AT_name("MSGQ_LocateAsyncAttrs")
 	.dwattr $C$DW$T$76, DW_AT_byte_size(0x08)
-$C$DW$72	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$36)
+$C$DW$72	.dwtag  DW_TAG_member
+	.dwattr $C$DW$72, DW_AT_type(*$C$DW$T$36)
 	.dwattr $C$DW$72, DW_AT_name("poolId")
 	.dwattr $C$DW$72, DW_AT_TI_symbol_name("_poolId")
 	.dwattr $C$DW$72, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$72, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$73	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$51)
+$C$DW$73	.dwtag  DW_TAG_member
+	.dwattr $C$DW$73, DW_AT_type(*$C$DW$T$51)
 	.dwattr $C$DW$73, DW_AT_name("arg")
 	.dwattr $C$DW$73, DW_AT_TI_symbol_name("_arg")
 	.dwattr $C$DW$73, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
 	.dwattr $C$DW$73, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$76
 
-$C$DW$T$164	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_LocateAsyncAttrs")
-	.dwattr $C$DW$T$164, DW_AT_type(*$C$DW$T$76)
-	.dwattr $C$DW$T$164, DW_AT_language(DW_LANG_C)
+$C$DW$T$162	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_LocateAsyncAttrs")
+	.dwattr $C$DW$T$162, DW_AT_type(*$C$DW$T$76)
+	.dwattr $C$DW$T$162, DW_AT_language(DW_LANG_C)
 
 $C$DW$T$79	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$79, DW_AT_name("MSGQ_MsgHeader")
 	.dwattr $C$DW$T$79, DW_AT_byte_size(0x14)
-$C$DW$74	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$78)
+$C$DW$74	.dwtag  DW_TAG_member
+	.dwattr $C$DW$74, DW_AT_type(*$C$DW$T$78)
 	.dwattr $C$DW$74, DW_AT_name("reserved")
 	.dwattr $C$DW$74, DW_AT_TI_symbol_name("_reserved")
 	.dwattr $C$DW$74, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$74, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$75	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$36)
+$C$DW$75	.dwtag  DW_TAG_member
+	.dwattr $C$DW$75, DW_AT_type(*$C$DW$T$36)
 	.dwattr $C$DW$75, DW_AT_name("srcProcId")
 	.dwattr $C$DW$75, DW_AT_TI_symbol_name("_srcProcId")
 	.dwattr $C$DW$75, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
 	.dwattr $C$DW$75, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$76	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$36)
+$C$DW$76	.dwtag  DW_TAG_member
+	.dwattr $C$DW$76, DW_AT_type(*$C$DW$T$36)
 	.dwattr $C$DW$76, DW_AT_name("poolId")
 	.dwattr $C$DW$76, DW_AT_TI_symbol_name("_poolId")
 	.dwattr $C$DW$76, DW_AT_data_member_location[DW_OP_plus_uconst 0xa]
 	.dwattr $C$DW$76, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$77	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$36)
+$C$DW$77	.dwtag  DW_TAG_member
+	.dwattr $C$DW$77, DW_AT_type(*$C$DW$T$36)
 	.dwattr $C$DW$77, DW_AT_name("size")
 	.dwattr $C$DW$77, DW_AT_TI_symbol_name("_size")
 	.dwattr $C$DW$77, DW_AT_data_member_location[DW_OP_plus_uconst 0xc]
 	.dwattr $C$DW$77, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$78	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$36)
+$C$DW$78	.dwtag  DW_TAG_member
+	.dwattr $C$DW$78, DW_AT_type(*$C$DW$T$36)
 	.dwattr $C$DW$78, DW_AT_name("dstId")
 	.dwattr $C$DW$78, DW_AT_TI_symbol_name("_dstId")
 	.dwattr $C$DW$78, DW_AT_data_member_location[DW_OP_plus_uconst 0xe]
 	.dwattr $C$DW$78, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$79	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$36)
+$C$DW$79	.dwtag  DW_TAG_member
+	.dwattr $C$DW$79, DW_AT_type(*$C$DW$T$36)
 	.dwattr $C$DW$79, DW_AT_name("srcId")
 	.dwattr $C$DW$79, DW_AT_TI_symbol_name("_srcId")
 	.dwattr $C$DW$79, DW_AT_data_member_location[DW_OP_plus_uconst 0x10]
 	.dwattr $C$DW$79, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$80	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$36)
+$C$DW$80	.dwtag  DW_TAG_member
+	.dwattr $C$DW$80, DW_AT_type(*$C$DW$T$36)
 	.dwattr $C$DW$80, DW_AT_name("msgId")
 	.dwattr $C$DW$80, DW_AT_TI_symbol_name("_msgId")
 	.dwattr $C$DW$80, DW_AT_data_member_location[DW_OP_plus_uconst 0x12]
@@ -873,7 +992,8 @@ $C$DW$80	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$36)
 $C$DW$T$80	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_MsgHeader")
 	.dwattr $C$DW$T$80, DW_AT_type(*$C$DW$T$79)
 	.dwattr $C$DW$T$80, DW_AT_language(DW_LANG_C)
-$C$DW$T$98	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$79)
+$C$DW$T$98	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$98, DW_AT_type(*$C$DW$T$79)
 	.dwattr $C$DW$T$98, DW_AT_address_class(0x20)
 $C$DW$T$99	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_Msg")
 	.dwattr $C$DW$T$99, DW_AT_type(*$C$DW$T$98)
@@ -882,80 +1002,92 @@ $C$DW$T$99	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_Msg")
 $C$DW$T$82	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$82, DW_AT_name("MSGQ_AsyncLocateMsg")
 	.dwattr $C$DW$T$82, DW_AT_byte_size(0x1c)
-$C$DW$81	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$80)
+$C$DW$81	.dwtag  DW_TAG_member
+	.dwattr $C$DW$81, DW_AT_type(*$C$DW$T$80)
 	.dwattr $C$DW$81, DW_AT_name("header")
 	.dwattr $C$DW$81, DW_AT_TI_symbol_name("_header")
 	.dwattr $C$DW$81, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$81, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$82	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$81)
+$C$DW$82	.dwtag  DW_TAG_member
+	.dwattr $C$DW$82, DW_AT_type(*$C$DW$T$81)
 	.dwattr $C$DW$82, DW_AT_name("msgqQueue")
 	.dwattr $C$DW$82, DW_AT_TI_symbol_name("_msgqQueue")
 	.dwattr $C$DW$82, DW_AT_data_member_location[DW_OP_plus_uconst 0x14]
 	.dwattr $C$DW$82, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$83	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$51)
+$C$DW$83	.dwtag  DW_TAG_member
+	.dwattr $C$DW$83, DW_AT_type(*$C$DW$T$51)
 	.dwattr $C$DW$83, DW_AT_name("arg")
 	.dwattr $C$DW$83, DW_AT_TI_symbol_name("_arg")
 	.dwattr $C$DW$83, DW_AT_data_member_location[DW_OP_plus_uconst 0x18]
 	.dwattr $C$DW$83, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$82
 
-$C$DW$T$165	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_AsyncLocateMsg")
-	.dwattr $C$DW$T$165, DW_AT_type(*$C$DW$T$82)
-	.dwattr $C$DW$T$165, DW_AT_language(DW_LANG_C)
+$C$DW$T$163	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_AsyncLocateMsg")
+	.dwattr $C$DW$T$163, DW_AT_type(*$C$DW$T$82)
+	.dwattr $C$DW$T$163, DW_AT_language(DW_LANG_C)
 
 $C$DW$T$84	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$84, DW_AT_name("MSGQ_AsyncErrorMsg")
 	.dwattr $C$DW$T$84, DW_AT_byte_size(0x1c)
-$C$DW$84	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$80)
+$C$DW$84	.dwtag  DW_TAG_member
+	.dwattr $C$DW$84, DW_AT_type(*$C$DW$T$80)
 	.dwattr $C$DW$84, DW_AT_name("header")
 	.dwattr $C$DW$84, DW_AT_TI_symbol_name("_header")
 	.dwattr $C$DW$84, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$84, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$85	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$83)
+$C$DW$85	.dwtag  DW_TAG_member
+	.dwattr $C$DW$85, DW_AT_type(*$C$DW$T$83)
 	.dwattr $C$DW$85, DW_AT_name("errorType")
 	.dwattr $C$DW$85, DW_AT_TI_symbol_name("_errorType")
 	.dwattr $C$DW$85, DW_AT_data_member_location[DW_OP_plus_uconst 0x14]
 	.dwattr $C$DW$85, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$86	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$36)
+$C$DW$86	.dwtag  DW_TAG_member
+	.dwattr $C$DW$86, DW_AT_type(*$C$DW$T$36)
 	.dwattr $C$DW$86, DW_AT_name("mqtId")
 	.dwattr $C$DW$86, DW_AT_TI_symbol_name("_mqtId")
 	.dwattr $C$DW$86, DW_AT_data_member_location[DW_OP_plus_uconst 0x16]
 	.dwattr $C$DW$86, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$87	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$36)
+$C$DW$87	.dwtag  DW_TAG_member
+	.dwattr $C$DW$87, DW_AT_type(*$C$DW$T$36)
 	.dwattr $C$DW$87, DW_AT_name("parameter")
 	.dwattr $C$DW$87, DW_AT_TI_symbol_name("_parameter")
 	.dwattr $C$DW$87, DW_AT_data_member_location[DW_OP_plus_uconst 0x18]
 	.dwattr $C$DW$87, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$84
 
-$C$DW$T$166	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_AsyncErrorMsg")
-	.dwattr $C$DW$T$166, DW_AT_type(*$C$DW$T$84)
-	.dwattr $C$DW$T$166, DW_AT_language(DW_LANG_C)
+$C$DW$T$164	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_AsyncErrorMsg")
+	.dwattr $C$DW$T$164, DW_AT_type(*$C$DW$T$84)
+	.dwattr $C$DW$T$164, DW_AT_language(DW_LANG_C)
 
 $C$DW$T$103	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$103, DW_AT_name("MSGQ_TransportFxns")
 	.dwattr $C$DW$T$103, DW_AT_byte_size(0x14)
-$C$DW$88	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$89)
+$C$DW$88	.dwtag  DW_TAG_member
+	.dwattr $C$DW$88, DW_AT_type(*$C$DW$T$89)
 	.dwattr $C$DW$88, DW_AT_name("open")
 	.dwattr $C$DW$88, DW_AT_TI_symbol_name("_open")
 	.dwattr $C$DW$88, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$88, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$89	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$90)
+$C$DW$89	.dwtag  DW_TAG_member
+	.dwattr $C$DW$89, DW_AT_type(*$C$DW$T$90)
 	.dwattr $C$DW$89, DW_AT_name("close")
 	.dwattr $C$DW$89, DW_AT_TI_symbol_name("_close")
 	.dwattr $C$DW$89, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
 	.dwattr $C$DW$89, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$90	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$94)
+$C$DW$90	.dwtag  DW_TAG_member
+	.dwattr $C$DW$90, DW_AT_type(*$C$DW$T$94)
 	.dwattr $C$DW$90, DW_AT_name("locate")
 	.dwattr $C$DW$90, DW_AT_TI_symbol_name("_locate")
 	.dwattr $C$DW$90, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
 	.dwattr $C$DW$90, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$91	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$97)
+$C$DW$91	.dwtag  DW_TAG_member
+	.dwattr $C$DW$91, DW_AT_type(*$C$DW$T$97)
 	.dwattr $C$DW$91, DW_AT_name("release")
 	.dwattr $C$DW$91, DW_AT_TI_symbol_name("_release")
 	.dwattr $C$DW$91, DW_AT_data_member_location[DW_OP_plus_uconst 0xc]
 	.dwattr $C$DW$91, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$92	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$102)
+$C$DW$92	.dwtag  DW_TAG_member
+	.dwattr $C$DW$92, DW_AT_type(*$C$DW$T$102)
 	.dwattr $C$DW$92, DW_AT_name("put")
 	.dwattr $C$DW$92, DW_AT_TI_symbol_name("_put")
 	.dwattr $C$DW$92, DW_AT_data_member_location[DW_OP_plus_uconst 0x10]
@@ -965,40 +1097,47 @@ $C$DW$92	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$102)
 $C$DW$T$105	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_TransportFxns")
 	.dwattr $C$DW$T$105, DW_AT_type(*$C$DW$T$103)
 	.dwattr $C$DW$T$105, DW_AT_language(DW_LANG_C)
-$C$DW$T$106	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$105)
+$C$DW$T$106	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$106, DW_AT_type(*$C$DW$T$105)
 	.dwattr $C$DW$T$106, DW_AT_address_class(0x20)
 
 $C$DW$T$107	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$107, DW_AT_name("MSGQ_TransportObj")
 	.dwattr $C$DW$T$107, DW_AT_byte_size(0x14)
-$C$DW$93	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$104)
+$C$DW$93	.dwtag  DW_TAG_member
+	.dwattr $C$DW$93, DW_AT_type(*$C$DW$T$104)
 	.dwattr $C$DW$93, DW_AT_name("initFxn")
 	.dwattr $C$DW$93, DW_AT_TI_symbol_name("_initFxn")
 	.dwattr $C$DW$93, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$93, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$94	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$106)
+$C$DW$94	.dwtag  DW_TAG_member
+	.dwattr $C$DW$94, DW_AT_type(*$C$DW$T$106)
 	.dwattr $C$DW$94, DW_AT_name("fxns")
 	.dwattr $C$DW$94, DW_AT_TI_symbol_name("_fxns")
 	.dwattr $C$DW$94, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
 	.dwattr $C$DW$94, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$95	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$20)
+$C$DW$95	.dwtag  DW_TAG_member
+	.dwattr $C$DW$95, DW_AT_type(*$C$DW$T$20)
 	.dwattr $C$DW$95, DW_AT_name("params")
 	.dwattr $C$DW$95, DW_AT_TI_symbol_name("_params")
 	.dwattr $C$DW$95, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
 	.dwattr $C$DW$95, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$96	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$20)
+$C$DW$96	.dwtag  DW_TAG_member
+	.dwattr $C$DW$96, DW_AT_type(*$C$DW$T$20)
 	.dwattr $C$DW$96, DW_AT_name("object")
 	.dwattr $C$DW$96, DW_AT_TI_symbol_name("_object")
 	.dwattr $C$DW$96, DW_AT_data_member_location[DW_OP_plus_uconst 0xc]
 	.dwattr $C$DW$96, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$97	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$36)
+$C$DW$97	.dwtag  DW_TAG_member
+	.dwattr $C$DW$97, DW_AT_type(*$C$DW$T$36)
 	.dwattr $C$DW$97, DW_AT_name("procId")
 	.dwattr $C$DW$97, DW_AT_TI_symbol_name("_procId")
 	.dwattr $C$DW$97, DW_AT_data_member_location[DW_OP_plus_uconst 0x10]
 	.dwattr $C$DW$97, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$107
 
-$C$DW$T$85	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$107)
+$C$DW$T$85	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$85, DW_AT_type(*$C$DW$T$107)
 	.dwattr $C$DW$T$85, DW_AT_address_class(0x20)
 $C$DW$T$86	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_TransportHandle")
 	.dwattr $C$DW$T$86, DW_AT_type(*$C$DW$T$85)
@@ -1006,91 +1145,106 @@ $C$DW$T$86	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_TransportHandle")
 $C$DW$T$110	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_TransportObj")
 	.dwattr $C$DW$T$110, DW_AT_type(*$C$DW$T$107)
 	.dwattr $C$DW$T$110, DW_AT_language(DW_LANG_C)
-$C$DW$T$111	.dwtag  DW_TAG_pointer_type, DW_AT_type(*$C$DW$T$110)
+$C$DW$T$111	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$111, DW_AT_type(*$C$DW$T$110)
 	.dwattr $C$DW$T$111, DW_AT_address_class(0x20)
 
 $C$DW$T$112	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$112, DW_AT_name("MSGQ_Config")
 	.dwattr $C$DW$T$112, DW_AT_byte_size(0x18)
-$C$DW$98	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$109)
+$C$DW$98	.dwtag  DW_TAG_member
+	.dwattr $C$DW$98, DW_AT_type(*$C$DW$T$109)
 	.dwattr $C$DW$98, DW_AT_name("msgqQueues")
 	.dwattr $C$DW$98, DW_AT_TI_symbol_name("_msgqQueues")
 	.dwattr $C$DW$98, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$98, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$99	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$111)
+$C$DW$99	.dwtag  DW_TAG_member
+	.dwattr $C$DW$99, DW_AT_type(*$C$DW$T$111)
 	.dwattr $C$DW$99, DW_AT_name("transports")
 	.dwattr $C$DW$99, DW_AT_TI_symbol_name("_transports")
 	.dwattr $C$DW$99, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
 	.dwattr $C$DW$99, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$100	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$36)
+$C$DW$100	.dwtag  DW_TAG_member
+	.dwattr $C$DW$100, DW_AT_type(*$C$DW$T$36)
 	.dwattr $C$DW$100, DW_AT_name("numMsgqQueues")
 	.dwattr $C$DW$100, DW_AT_TI_symbol_name("_numMsgqQueues")
 	.dwattr $C$DW$100, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
 	.dwattr $C$DW$100, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$101	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$36)
+$C$DW$101	.dwtag  DW_TAG_member
+	.dwattr $C$DW$101, DW_AT_type(*$C$DW$T$36)
 	.dwattr $C$DW$101, DW_AT_name("numProcessors")
 	.dwattr $C$DW$101, DW_AT_TI_symbol_name("_numProcessors")
 	.dwattr $C$DW$101, DW_AT_data_member_location[DW_OP_plus_uconst 0xa]
 	.dwattr $C$DW$101, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$102	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$36)
+$C$DW$102	.dwtag  DW_TAG_member
+	.dwattr $C$DW$102, DW_AT_type(*$C$DW$T$36)
 	.dwattr $C$DW$102, DW_AT_name("startUninitialized")
 	.dwattr $C$DW$102, DW_AT_TI_symbol_name("_startUninitialized")
 	.dwattr $C$DW$102, DW_AT_data_member_location[DW_OP_plus_uconst 0xc]
 	.dwattr $C$DW$102, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$103	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$81)
+$C$DW$103	.dwtag  DW_TAG_member
+	.dwattr $C$DW$103, DW_AT_type(*$C$DW$T$81)
 	.dwattr $C$DW$103, DW_AT_name("errorQueue")
 	.dwattr $C$DW$103, DW_AT_TI_symbol_name("_errorQueue")
 	.dwattr $C$DW$103, DW_AT_data_member_location[DW_OP_plus_uconst 0x10]
 	.dwattr $C$DW$103, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$104	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$36)
+$C$DW$104	.dwtag  DW_TAG_member
+	.dwattr $C$DW$104, DW_AT_type(*$C$DW$T$36)
 	.dwattr $C$DW$104, DW_AT_name("errorPoolId")
 	.dwattr $C$DW$104, DW_AT_TI_symbol_name("_errorPoolId")
 	.dwattr $C$DW$104, DW_AT_data_member_location[DW_OP_plus_uconst 0x14]
 	.dwattr $C$DW$104, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$112
 
-$C$DW$T$167	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_Config")
-	.dwattr $C$DW$T$167, DW_AT_type(*$C$DW$T$112)
-	.dwattr $C$DW$T$167, DW_AT_language(DW_LANG_C)
+$C$DW$T$165	.dwtag  DW_TAG_typedef, DW_AT_name("MSGQ_Config")
+	.dwattr $C$DW$T$165, DW_AT_type(*$C$DW$T$112)
+	.dwattr $C$DW$T$165, DW_AT_language(DW_LANG_C)
 
 $C$DW$T$115	.dwtag  DW_TAG_structure_type
 	.dwattr $C$DW$T$115, DW_AT_name("CHNL_Irp_tag")
 	.dwattr $C$DW$T$115, DW_AT_byte_size(0x1c)
-$C$DW$105	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$113)
+$C$DW$105	.dwtag  DW_TAG_member
+	.dwattr $C$DW$105, DW_AT_type(*$C$DW$T$113)
 	.dwattr $C$DW$105, DW_AT_name("link")
 	.dwattr $C$DW$105, DW_AT_TI_symbol_name("_link")
 	.dwattr $C$DW$105, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
 	.dwattr $C$DW$105, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$106	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$20)
+$C$DW$106	.dwtag  DW_TAG_member
+	.dwattr $C$DW$106, DW_AT_type(*$C$DW$T$20)
 	.dwattr $C$DW$106, DW_AT_name("buffer")
 	.dwattr $C$DW$106, DW_AT_TI_symbol_name("_buffer")
 	.dwattr $C$DW$106, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
 	.dwattr $C$DW$106, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$107	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$114)
+$C$DW$107	.dwtag  DW_TAG_member
+	.dwattr $C$DW$107, DW_AT_type(*$C$DW$T$114)
 	.dwattr $C$DW$107, DW_AT_name("arg")
 	.dwattr $C$DW$107, DW_AT_TI_symbol_name("_arg")
 	.dwattr $C$DW$107, DW_AT_data_member_location[DW_OP_plus_uconst 0xc]
 	.dwattr $C$DW$107, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$108	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$114)
+$C$DW$108	.dwtag  DW_TAG_member
+	.dwattr $C$DW$108, DW_AT_type(*$C$DW$T$114)
 	.dwattr $C$DW$108, DW_AT_name("size")
 	.dwattr $C$DW$108, DW_AT_TI_symbol_name("_size")
 	.dwattr $C$DW$108, DW_AT_data_member_location[DW_OP_plus_uconst 0x10]
 	.dwattr $C$DW$108, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$109	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$114)
+$C$DW$109	.dwtag  DW_TAG_member
+	.dwattr $C$DW$109, DW_AT_type(*$C$DW$T$114)
 	.dwattr $C$DW$109, DW_AT_name("iocStatus")
 	.dwattr $C$DW$109, DW_AT_TI_symbol_name("_iocStatus")
 	.dwattr $C$DW$109, DW_AT_data_member_location[DW_OP_plus_uconst 0x14]
 	.dwattr $C$DW$109, DW_AT_accessibility(DW_ACCESS_public)
-$C$DW$110	.dwtag  DW_TAG_member, DW_AT_type(*$C$DW$T$114)
+$C$DW$110	.dwtag  DW_TAG_member
+	.dwattr $C$DW$110, DW_AT_type(*$C$DW$T$114)
 	.dwattr $C$DW$110, DW_AT_name("chnlId")
 	.dwattr $C$DW$110, DW_AT_TI_symbol_name("_chnlId")
 	.dwattr $C$DW$110, DW_AT_data_member_location[DW_OP_plus_uconst 0x18]
 	.dwattr $C$DW$110, DW_AT_accessibility(DW_ACCESS_public)
 	.dwendtag $C$DW$T$115
 
-$C$DW$T$168	.dwtag  DW_TAG_typedef, DW_AT_name("CHNL_Irp")
-	.dwattr $C$DW$T$168, DW_AT_type(*$C$DW$T$115)
-	.dwattr $C$DW$T$168, DW_AT_language(DW_LANG_C)
+$C$DW$T$166	.dwtag  DW_TAG_typedef, DW_AT_name("CHNL_Irp")
+	.dwattr $C$DW$T$166, DW_AT_type(*$C$DW$T$115)
+	.dwattr $C$DW$T$166, DW_AT_language(DW_LANG_C)
+	.dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
 
 ;***************************************************************
 ;* DWARF CIE ENTRIES                                           *

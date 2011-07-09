@@ -1,0 +1,4 @@
+This package overlays over TI's DSPLink package to abstract data exchange between a GPP/DSP application from the DSP, TI C64x+, side of things.
+
+For details about installing the package please click on the Wiki Page
+

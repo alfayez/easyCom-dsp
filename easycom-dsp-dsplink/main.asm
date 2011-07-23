@@ -1,6 +1,6 @@
 ;******************************************************************************
 ;* TMS320C6x C/C++ Codegen                                       Unix v6.1.17 *
-;* Date/Time created: Sat Jul  9 12:24:31 2011                                *
+;* Date/Time created: Sat Jul 23 13:37:10 2011                                *
 ;******************************************************************************
 	.compiler_opts --c64p_l1d_workaround=default --disable:=sploop --endian=little --hll_source=on --mem_model:code=far --mem_model:const=data --mem_model:data=far --predefine_memory_model_macros --quiet --silicon_version=6500 --symdebug:dwarf 
 
@@ -31,7 +31,7 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("main.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C6x C/C++ Codegen Unix v6.1.17 Copyright (c) 1996-2010 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("/home/alfayez/secondary_hd/ti/dsplink_1_65_00_03/dsplink/dsp/src/samples/easycom-dsp-dsplink")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("/home/alfayez/secondary_hd/ti/dsplink_1_65_00_03-e100/dsplink/dsp/src/samples/easycom-dsp-dsplink")
 	.ref	___TI_path_prof_out
 
 $C$DW$1	.dwtag  DW_TAG_subprogram, DW_AT_name("LOG_printf")
@@ -145,7 +145,7 @@ $C$DW$26	.dwtag  DW_TAG_variable, DW_AT_name("_prof_arr__tskLoop_1")
 	.dwattr $C$DW$26, DW_AT_TI_symbol_name("__prof_arr__tskLoop_1")
 	.dwattr $C$DW$26, DW_AT_type(*$C$DW$T$293)
 	.dwattr $C$DW$26, DW_AT_location[DW_OP_addr __prof_arr__tskLoop_1]
-;	/home/alfayez/secondary_hd/ti/cgt_c6000_6_1_17/bin/opt6x /tmp/06648gGMpMcp /tmp/06648AWad1h 
+;	/home/alfayez/secondary_hd/ti/cgt_c6000_6_1_17/bin/opt6x /tmp/24484djO4jep /tmp/24484hwMCDm 
 	.sect	".text"
 	.clink
 

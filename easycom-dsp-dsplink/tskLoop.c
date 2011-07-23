@@ -177,7 +177,7 @@ Int TSKLOOP_create (TSKLOOP_TransferInfo ** infoPtr)
     Uint16                  i ;
     Uint16                  j ;
 #if  defined (DSP_BOOTMODE_NOBOOT)
-    POOL_Obj                poolObj ;
+    POOL_Obj                poolObj ;w
 
     smaPoolObj.poolId        = 0;
     smaPoolObj.exactMatchReq = TRUE ;
@@ -366,7 +366,7 @@ while (1) {
 			//block_type = _mem2_const(buffer+sizeof(bufferType)*(DSP_BLOCK_TYPE_INDEX+1));
             //block_id   = _mem2_const(buffer+sizeof(bufferType)*(DSP_BLOCK_ID_INDEX+1));
 			
-			memcpy(&block_type, buffer+sizeof(bufferType)*(DSP_BLOCK_TYPE_INDEX+1), sizeof(bufferType));
+	    memcpy(&block_type, buffer+sizeof(bufferType)*(DSP_BLOCK_TYPE_INDEX+1), sizeof(bufferType));
             memcpy(&block_id, buffer+sizeof(bufferType)*(DSP_BLOCK_ID_INDEX+1), sizeof(bufferType));
 			
 			//memcpy(&block_type,     buffer+sizeof(bufferType)*(DSP_BLOCK_TYPE_INDEX+1),      sizeof(bufferType));
@@ -419,7 +419,11 @@ while (1) {
 	     else
 	     {
 			rf_data_size = _mem2_const(&buffer[0]);
-			memcpy(buffer_interp, buffer, sizeof(buffer_interp[0])*rf_data_size);
+	    		memcpy(buffer+sizeof(bufferType)*(DSP_BLOCK_TYPE_INDEX+1), 0, sizeof(bufferType));
+            		memcpy(buffer+sizeof(bufferType)*(DSP_BLOCK_ID_INDEX+1), 0, sizeof(bufferType));
+
+			memcpy(buffer_interp, buffer+2, sizeof(buffer_interp[0])*rf_data_size);
+
 	//		if (interpolation_factor[block_id] > 1)
 	//			if (rf_data_size < 1158)
 					k=0;
@@ -457,11 +461,18 @@ while (1) {
 			Implement Channel Filter
 			**********************************************************/	     		
 			if (block_type_array[block_id] == CCF_FM_MOD_INIT)
+			{
 				buffer_temp = (bufferType *) buffer_interp_ptr+fir_coeff_size[block_id]*2;
+				rf_data_size = rf_data_size * interpolation_factor[block_id];
+			}
 			else
-				buffer_temp = (bufferType *) buffer+fir_coeff_size[block_id]*2;
+			{
+				buffer_temp = ((bufferType *) buffer+2)+fir_coeff_size[block_id]*2;
+				rf_data_size = rf_data_size * interpolation_factor[block_id]*2;	
+
+			}
 			
-			rf_data_size = rf_data_size * interpolation_factor[block_id];
+
 			//buffer_temp = (bufferType *) buffer_interp_ptr+fir_coeff_size[block_id]*2;
 			
 			DSP_fir_cplx_test ((short *)buffer_temp, 

@@ -1,6 +1,6 @@
 ;******************************************************************************
 ;* TMS320C6x C/C++ Codegen                                       Unix v6.1.17 *
-;* Date/Time created: Sat Jul  9 12:24:34 2011                                *
+;* Date/Time created: Sat Jul 23 13:37:12 2011                                *
 ;******************************************************************************
 	.compiler_opts --c64p_l1d_workaround=default --disable:=sploop --endian=little --hll_source=on --mem_model:code=far --mem_model:const=data --mem_model:data=far --predefine_memory_model_macros --quiet --silicon_version=6500 --symdebug:dwarf 
 
@@ -31,7 +31,7 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("swiLoop.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C6x C/C++ Codegen Unix v6.1.17 Copyright (c) 1996-2010 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("/home/alfayez/secondary_hd/ti/dsplink_1_65_00_03/dsplink/dsp/src/samples/easycom-dsp-dsplink")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("/home/alfayez/secondary_hd/ti/dsplink_1_65_00_03-e100/dsplink/dsp/src/samples/easycom-dsp-dsplink")
 	.ref	___TI_path_prof_out
 
 $C$DW$1	.dwtag  DW_TAG_subprogram, DW_AT_name("SWI_andn")
@@ -207,7 +207,7 @@ $C$DW$45	.dwtag  DW_TAG_variable, DW_AT_name("_prof_arr__loopbackSWI_5")
 	.dwattr $C$DW$45, DW_AT_TI_symbol_name("__prof_arr__loopbackSWI_5")
 	.dwattr $C$DW$45, DW_AT_type(*$C$DW$T$312)
 	.dwattr $C$DW$45, DW_AT_location[DW_OP_addr __prof_arr__loopbackSWI_5]
-;	/home/alfayez/secondary_hd/ti/cgt_c6000_6_1_17/bin/opt6x /tmp/066726sRIypp /tmp/06672G9iWlU 
+;	/home/alfayez/secondary_hd/ti/cgt_c6000_6_1_17/bin/opt6x /tmp/24508gZFJdKp /tmp/24508OC9vkU 
 	.sect	".text"
 	.clink
 
@@ -900,7 +900,7 @@ $C$DW$84	.dwtag  DW_TAG_TI_branch
            ; BRANCH OCCURS {B3}  
 
 $C$DW$85	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$85, DW_AT_name("/home/alfayez/secondary_hd/ti/dsplink_1_65_00_03/dsplink/dsp/src/samples/easycom-dsp-dsplink/swiLoop.asm:$C$L4:1:1310228674")
+	.dwattr $C$DW$85, DW_AT_name("/home/alfayez/secondary_hd/ti/dsplink_1_65_00_03-e100/dsplink/dsp/src/samples/easycom-dsp-dsplink/swiLoop.asm:$C$L4:1:1311442632")
 	.dwattr $C$DW$85, DW_AT_TI_begin_file("swiLoop.c")
 	.dwattr $C$DW$85, DW_AT_TI_begin_line(0x1d3)
 	.dwattr $C$DW$85, DW_AT_TI_end_line(0x1d5)

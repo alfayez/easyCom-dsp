@@ -43,10 +43,14 @@ USR_CC_FLAGS    += -mh128
 USR_CC_FLAGS    += --opt_for_space=0
 USR_CC_FLAGS    += -mw
 USR_CC_FLAGS    += -mv6400+
+USR_CC_FLAGS    += -i"/home/alfayez/secondary_hd/ti/DSPLIB/packages"
+#USR_CC_FLAGS    += --include_path="/home/alfayez/secondary_hd/ti/DSPLIB/inc;/home/alfayez/secondary_hd/ti/DSPLIB/packages/ti/dsplib/src"
+
 USR_CC_FLAGS    += --gen_profile_info
+USR_CC_FLAGS    += --gen_func_subsections
 
 USR_CC_DEFNS    := -d"TSK_MODE"
-#USR_CC_DEFNS    += -O3
+
 
 
 #   ============================================================================
@@ -75,6 +79,8 @@ STD_LIBS        :=
 USR_LIBS        := dsplink.lib
 USR_LIBS        += IQmath_RAM_c64x+.lib
 USR_LIBS        += IQmath_c64x+.lib
+USR_LIBS        += dsplib64plus.lib
+USR_LIBS        += dsplib.a64P
 
 ifeq ($(TI_DSPLINK_USE_POOL), 1)
 USR_LIBS        += dsplinkpool.lib
@@ -110,7 +116,6 @@ BASE_CCS_C64XDSP	:= $(BASE_CCS_C64X)\dsplib
 BASE_CCS_C64XDSPINC	:= $(BASE_CCS_C64XDSP)\include
 BASE_CCS_C64XDSPLIB	:= $(BASE_CCS_C64XDSP)\lib
 
-USR_LIBS        += dsplib64plus.lib
 #   ============================================================================
 #   Target file(s) exported from this module
 #   ============================================================================

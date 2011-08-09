@@ -1,6 +1,6 @@
 ;******************************************************************************
 ;* TMS320C6x C/C++ Codegen                                       Unix v6.1.17 *
-;* Date/Time created: Sat Jul 23 13:37:12 2011                                *
+;* Date/Time created: Sun Aug  7 15:49:21 2011                                *
 ;******************************************************************************
 	.compiler_opts --c64p_l1d_workaround=default --disable:=sploop --endian=little --hll_source=on --mem_model:code=far --mem_model:const=data --mem_model:data=far --predefine_memory_model_macros --quiet --silicon_version=6500 --symdebug:dwarf 
 
@@ -207,8 +207,8 @@ $C$DW$45	.dwtag  DW_TAG_variable, DW_AT_name("_prof_arr__loopbackSWI_5")
 	.dwattr $C$DW$45, DW_AT_TI_symbol_name("__prof_arr__loopbackSWI_5")
 	.dwattr $C$DW$45, DW_AT_type(*$C$DW$T$312)
 	.dwattr $C$DW$45, DW_AT_location[DW_OP_addr __prof_arr__loopbackSWI_5]
-;	/home/alfayez/secondary_hd/ti/cgt_c6000_6_1_17/bin/opt6x /tmp/24508gZFJdKp /tmp/24508OC9vkU 
-	.sect	".text"
+;	/home/alfayez/secondary_hd/ti/cgt_c6000_6_1_17/bin/opt6x /tmp/13632rOoxQVp /tmp/136321Hcb5s 
+	.sect	".text:_writeFinishCb"
 	.clink
 
 $C$DW$46	.dwtag  DW_TAG_subprogram, DW_AT_name("writeFinishCb")
@@ -376,7 +376,7 @@ $C$DW$57	.dwtag  DW_TAG_TI_branch
 	.dwendentry
 	.dwendtag $C$DW$46
 
-	.sect	".text"
+	.sect	".text:_readFinishCb"
 	.clink
 
 $C$DW$58	.dwtag  DW_TAG_subprogram, DW_AT_name("readFinishCb")
@@ -551,7 +551,7 @@ $C$DW$70	.dwtag  DW_TAG_TI_branch
 	.dwendentry
 	.dwendtag $C$DW$58
 
-	.sect	".text"
+	.sect	".text:_loopbackSWI"
 	.clink
 
 $C$DW$71	.dwtag  DW_TAG_subprogram, DW_AT_name("loopbackSWI")
@@ -900,7 +900,7 @@ $C$DW$84	.dwtag  DW_TAG_TI_branch
            ; BRANCH OCCURS {B3}  
 
 $C$DW$85	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$85, DW_AT_name("/home/alfayez/secondary_hd/ti/dsplink_1_65_00_03-e100/dsplink/dsp/src/samples/easycom-dsp-dsplink/swiLoop.asm:$C$L4:1:1311442632")
+	.dwattr $C$DW$85, DW_AT_name("/home/alfayez/secondary_hd/ti/dsplink_1_65_00_03-e100/dsplink/dsp/src/samples/easycom-dsp-dsplink/swiLoop.asm:$C$L4:1:1312746562")
 	.dwattr $C$DW$85, DW_AT_TI_begin_file("swiLoop.c")
 	.dwattr $C$DW$85, DW_AT_TI_begin_line(0x1d3)
 	.dwattr $C$DW$85, DW_AT_TI_end_line(0x1d5)
@@ -918,7 +918,7 @@ $C$DW$87	.dwtag  DW_TAG_TI_loop_range
 	.dwendentry
 	.dwendtag $C$DW$71
 
-	.sect	".text"
+	.sect	".text:_SWILOOP_execute"
 	.clink
 	.global	_SWILOOP_execute
 
@@ -1096,7 +1096,7 @@ $C$DW$95	.dwtag  DW_TAG_TI_branch
 	.dwendentry
 	.dwendtag $C$DW$88
 
-	.sect	".text"
+	.sect	".text:_SWILOOP_delete"
 	.clink
 	.global	_SWILOOP_delete
 
@@ -1537,7 +1537,7 @@ $C$DW$109	.dwtag  DW_TAG_TI_branch
 	.dwendentry
 	.dwendtag $C$DW$96
 
-	.sect	".text"
+	.sect	".text:_SWILOOP_create"
 	.clink
 	.global	_SWILOOP_create
 

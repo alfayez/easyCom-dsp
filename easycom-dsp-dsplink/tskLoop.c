@@ -50,7 +50,11 @@
 #include "typedef.h"
 
 #define GLOBAL_Q (14)
+//#include <dsplib.h>
+#define ENABLE_TI_DSPLIB
+#include <ti/dsplib/src/DSP_fir_cplx/DSP_fir_cplx.h>
 #include "IQmath.h"
+//#include "dsplib64plus.h"
 #define PI 			3.14159F
 #define M16_PI 		50.2655F
 #define M16_2PI 	100.531F
@@ -432,6 +436,8 @@ while (1) {
 
 			
 			/*********************************************************
+
+
 			If the message includes an FM modulator
 			**********************************************************/	     		
 			////////////////////////
@@ -475,7 +481,7 @@ while (1) {
 
 			//buffer_temp = (bufferType *) buffer_interp_ptr+fir_coeff_size[block_id]*2;
 			
-			DSP_fir_cplx_test ((short *)buffer_temp, 
+			DSP_fir_cplx ((short *)buffer_temp, 
 								fir_coeff[block_id], 
 								(short *)buffer, 
 								fir_coeff_size[block_id], 
@@ -677,86 +683,87 @@ Examples:
 ***********************************************************************	
 */
 
-void DSP_fir_cplx_test (
-    const short *restrict x,    /* Input array [nr+nh-1 elements] */
-    const short *restrict h,    /* Coeff array [nh elements]      */
-    short       *restrict r,    /* Output array [nr elements]     */
-    int nh,                     /* Number of coefficients         */
-    int nr                      /* Number of output samples       */
-)
-{
-    int i, j;
-    int imag0, real0;
-    int imag1, real1;
-    int imag_real_0;
-    int imag_real_1;
-    int h_10, h_01;
+//void DSP_fir_cplx_test (
+//    const short *restrict x,    // Input array [nr+nh-1 elements] 
+//    const short *restrict h,    // Coeff array [nh elements]      
+//    short       *restrict r,    // Output array [nr elements]     
+//    int nh,                     // Number of coefficients         
+//    int nr                      // Number of output samples       
+//)
+//{
+//    int i, j;
+//    int imag0, real0;
+//    int imag1, real1;
+//    int imag_real_0;
+//    int imag_real_1;
+//    int h_10, h_01;
+//
+//    double x_3210;
+//
+    //--------------------------------------------------------------------
+    // _nasserts are used to inform the compiler that the input, filter,  
+    // output arrays are word or double word aligned. In addition the  #  
+    // filter taps and output samples is stated to be even.               
+    //--------------------------------------------------------------------
+//    _nassert((int)nr >= 8);
+//    _nassert((int)nr % 4 == 0);
+//    _nassert((int)nh >= 4);
+//    _nassert((int)nh % 2 == 0);
 
-    double x_3210;
-
-    /*--------------------------------------------------------------------*/
-    /* _nasserts are used to inform the compiler that the input, filter,  */
-    /* output arrays are word or double word aligned. In addition the  #  */
-    /* filter taps and output samples is stated to be even.               */
-    /*--------------------------------------------------------------------*/
-    _nassert((int)nr >= 8);
-    _nassert((int)nr % 4 == 0);
-    _nassert((int)nh >= 4);
-    _nassert((int)nh % 2 == 0);
-
-    /*--------------------------------------------------------------------*/
-    /* Inform the compiler that the following loop will iterate at least  */
-    /* once and that the # output samples is a multiple of 4.             */
-    /*--------------------------------------------------------------------*/
+    //--------------------------------------------------------------------
+    // Inform the compiler that the following loop will iterate at least  
+    // once and that the # output samples is a multiple of 4.             
+    //--------------------------------------------------------------------
     //#pragma MUST_ITERATE(500)
-    #pragma MUST_ITERATE(4,,2)
-    for (i = 0; i < 2*nr; i += 4) {
-        /*----------------------------------------------------------------*/
-        /* Zero out accumulators for 4 complex output samples             */
-        /*----------------------------------------------------------------*/
-        imag0 = real0 = imag1 = real1 = 0;
+//    #pragma MUST_ITERATE(4,,2)
+//    for (i = 0; i < 2*nr; i += 4) {
+        //----------------------------------------------------------------
+        // Zero out accumulators for 4 complex output samples             
+        //----------------------------------------------------------------
+//        imag0 = real0 = imag1 = real1 = 0;
 
-        /*----------------------------------------------------------------*/
-        /* Inform compiler that filter taps is at least 4, and a multiple */
-        /* of 2.                                                          */
-        /*----------------------------------------------------------------*/
-        _nassert((int)nr >= 8);
-        _nassert((int)nr % 4 == 0);
-        _nassert((int)nh >= 4);
-        _nassert((int)nh % 2 == 0);
-        #pragma MUST_ITERATE(4,,2)
-        for (j = 0; j < 2*nh; j += 2) {
-            /*------------------------------------------------------------*/
-            /* Perform word-wide loads using intrinsic, swizzle using the */
-            /* packlh2 instruction to exchange the lower/upper half words */
-            /*------------------------------------------------------------*/
-            h_10 = _mem4_const(&h[j]);
-            h_01 = _packlh2(h_10, h_10);
+        //----------------------------------------------------------------
+        // Inform compiler that filter taps is at least 4, and a multiple 
+        // of 2.                                                          
+        //----------------------------------------------------------------
+//        _nassert((int)nr >= 8);
+//        _nassert((int)nr % 4 == 0);
+//        _nassert((int)nh >= 4);
+//        _nassert((int)nh % 2 == 0);
+//        #pragma MUST_ITERATE(4,,2)
+//        for (j = 0; j < 2*nh; j += 2) {
+            //------------------------------------------------------------
+            // Perform word-wide loads using intrinsic, swizzle using the 
+            // packlh2 instruction to exchange the lower/upper half words 
+            //------------------------------------------------------------
+//            h_10 = _mem4_const(&h[j]);
+//            h_01 = _packlh2(h_10, h_10);
 
-            /*------------------------------------------------------------*/
-            /* Load input data using aligned word wide loads.             */
-            /*------------------------------------------------------------*/
-            x_3210 = _memd8_const(&x[i - j]);
+            //------------------------------------------------------------
+            // Load input data using aligned word wide loads.             
+            //------------------------------------------------------------
+//            x_3210 = _memd8_const(&x[i - j]);
 
-            /*------------------------------------------------------------*/
-            /* Perform multiplies using complex data, filter taps and     */
-            /* accumulate results using either dotp2/dotpn2 instr.        */
-            /*------------------------------------------------------------*/
-            real0 -= _dotpn2(_lo(x_3210), h_10);
-            real1 -= _dotpn2(_hi(x_3210), h_10);
+            //------------------------------------------------------------
+            // Perform multiplies using complex data, filter taps and     
+            // accumulate results using either dotp2/dotpn2 instr.        
+            //------------------------------------------------------------
+//            real0 -= _dotpn2(_lo(x_3210), h_10);
+//            real1 -= _dotpn2(_hi(x_3210), h_10);
 
-            imag0 += _dotp2 (_lo(x_3210), h_01);
-            imag1 += _dotp2 (_hi(x_3210), h_01);
-        }
+//            imag0 += _dotp2 (_lo(x_3210), h_01);
+//            imag1 += _dotp2 (_hi(x_3210), h_01);
+//        }
 
-        /*----------------------------------------------------------------*/
-        /*  Shift out accumulated sum, and store as half words            */
-        /*----------------------------------------------------------------*/
-        imag_real_0 = _packh2(imag0 << 1, real0 << 1);
-        imag_real_1 = _packh2(imag1 << 1, real1 << 1);
-        _memd8(&r[i]) = _itod(imag_real_1, imag_real_0);
-    }
-}
+        //----------------------------------------------------------------
+        //  Shift out accumulated sum, and store as half words            
+        //----------------------------------------------------------------
+//        imag_real_0 = _packh2(imag0 << 1, real0 << 1);
+//        imag_real_1 = _packh2(imag1 << 1, real1 << 1);
+//        _memd8(&r[i]) = _itod(imag_real_1, imag_real_0);
+//    }
+//}
+
 /*
 ***********************************************************************
 Description:
@@ -764,10 +771,10 @@ Description:
 ***********************************************************************	
 Parameters:
 void DSP_fm_mod (
-    const bufferType *restrict input_buff,    	/* Input array [nr+nh-1 elements] 
-    bufferType       *restrict output_buff,   	/* Output array [nr elements]     
-    int input_count,                     	/* Number of output samples       
-	int interpolation_factor		/* Interpolation factor	     
+    const bufferType *restrict input_buff,    	// Input array [nr+nh-1 elements] 
+    bufferType       *restrict output_buff,   	// Output array [nr elements]     
+    int input_count,                     	// Number of output samples       
+	int interpolation_factor		// Interpolation factor	     
 ***********************************************************************	
 Returns:
 	None

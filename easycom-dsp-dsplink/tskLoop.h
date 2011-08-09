@@ -80,21 +80,21 @@ bufferType fir_ccf(bufferType* fir_in0, bufferType* fir_in1, bufferType fir_in_s
 bufferType interp_fir_ccf(bufferType* fir_in0, bufferType* fir_in1, bufferType interpolation, bufferType fir_in_size_local, bufferType* fir_coeff, bufferType fir_coeff_size_local, bufferType* fir_out0, bufferType* fir_out1);
 
 
-void DSP_fir_cplx_test (
-    const short *restrict x,    /* Input array [nr+nh-1 elements] */
-    const short *restrict h,    /* Coeff array [nh elements]      */
-    short       *restrict r,    /* Output array [nr elements]     */
-    int nh,                     /* Number of coefficients         */
-    int nr                      /* Number of output samples       */
-);
-void DSP_fir_cplx_test_interp (
-    const short *restrict x,    /* Input array [nr+nh-1 elements] */
-    const short *restrict h,    /* Coeff array [nh elements]      */
-    short       *restrict r,    /* Output array [nr elements]     */
-    int nh,                     /* Number of coefficients         */
-    int nr,                      /* Number of output samples       */
-	short interpolation_factor	
-);
+//void DSP_fir_cplx_test (
+//    const short *restrict x,    /* Input array [nr+nh-1 elements] */
+//    const short *restrict h,    /* Coeff array [nh elements]      */
+//    short       *restrict r,    /* Output array [nr elements]     */
+//    int nh,                     /* Number of coefficients         */
+//    int nr                      /* Number of output samples       */
+//);
+//void DSP_fir_cplx_test_interp (
+//    const short *restrict x,    /* Input array [nr+nh-1 elements] */
+//    const short *restrict h,    /* Coeff array [nh elements]      */
+//    short       *restrict r,    /* Output array [nr elements]     */
+//    int nh,                     /* Number of coefficients         */
+//    int nr,                      /* Number of output samples       */
+//	short interpolation_factor	
+//);
 void DSP_fm_mod (
     const bufferType *restrict input_buff,    /* Input array [nr+nh-1 elements] */
     bufferType       *restrict output_buff,   /* Output array [nr elements]      */

@@ -1,6 +1,6 @@
 ;******************************************************************************
 ;* TMS320C6x C/C++ Codegen                                       Unix v6.1.17 *
-;* Date/Time created: Sat Jul 23 13:37:10 2011                                *
+;* Date/Time created: Sun Aug  7 15:49:19 2011                                *
 ;******************************************************************************
 	.compiler_opts --c64p_l1d_workaround=default --disable:=sploop --endian=little --hll_source=on --mem_model:code=far --mem_model:const=data --mem_model:data=far --predefine_memory_model_macros --quiet --silicon_version=6500 --symdebug:dwarf 
 
@@ -145,8 +145,8 @@ $C$DW$26	.dwtag  DW_TAG_variable, DW_AT_name("_prof_arr__tskLoop_1")
 	.dwattr $C$DW$26, DW_AT_TI_symbol_name("__prof_arr__tskLoop_1")
 	.dwattr $C$DW$26, DW_AT_type(*$C$DW$T$293)
 	.dwattr $C$DW$26, DW_AT_location[DW_OP_addr __prof_arr__tskLoop_1]
-;	/home/alfayez/secondary_hd/ti/cgt_c6000_6_1_17/bin/opt6x /tmp/24484djO4jep /tmp/24484hwMCDm 
-	.sect	".text"
+;	/home/alfayez/secondary_hd/ti/cgt_c6000_6_1_17/bin/opt6x /tmp/13608r7loEpp /tmp/13608dlCBCU 
+	.sect	".text:_tskLoop"
 	.clink
 
 $C$DW$27	.dwtag  DW_TAG_subprogram, DW_AT_name("tskLoop")
@@ -372,7 +372,7 @@ $C$DW$36	.dwtag  DW_TAG_TI_branch
 	.dwendentry
 	.dwendtag $C$DW$27
 
-	.sect	".text"
+	.sect	".text:_main"
 	.clink
 	.global	_main
 
